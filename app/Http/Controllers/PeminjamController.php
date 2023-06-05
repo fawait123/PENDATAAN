@@ -106,15 +106,15 @@ class PeminjamController extends Controller {
 
         try {
             $peminjam->id_peminjam = $request->id_peminjam;
-		$peminjam->nama = $request->nama;
-		$peminjam->alamat = $request->alamat;
-		$peminjam->no_hp = $request->no_hp;
-		$peminjam->NIK = $request->NIK;
+            $peminjam->nama = $request->nama;
+            $peminjam->alamat = $request->alamat;
+            $peminjam->no_hp = $request->no_hp;
+            $peminjam->NIK = $request->NIK;
             $peminjam->save();
 
-            return redirect()->route('peminjams.index', [])->with('success', __('Peminjam edited successfully.'));
+            return redirect()->route('peminjam.index', [])->with('success', __('Peminjam edited successfully.'));
         } catch (\Throwable $e) {
-            return redirect()->route('peminjams.edit', compact('peminjam'))->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
+            return redirect()->route('peminjam.edit', compact('peminjam'))->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
         }
     }
 
