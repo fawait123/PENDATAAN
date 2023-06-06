@@ -15,4 +15,20 @@ class Aset extends Model
     protected $primaryKey = 'kd_aset';
 
     protected $guarded = [];
+
+
+    public function detail()
+    {
+        return $this->hasOne(DetAset::class,'kd_aset');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function jenis()
+    {
+        return $this->belongsTo(JenisAset::class,'kd_jenis');
+    }
 }

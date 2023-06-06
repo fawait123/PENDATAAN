@@ -124,9 +124,9 @@ class AsalAsetController extends Controller {
         try {
             $asalAset->delete();
 
-            return redirect()->route('asal_asets.index', [])->with('success', __('Asal Aset deleted successfully'));
+            return redirect()->route('asalAset.index', [])->with('success', __('Asal Aset deleted successfully'));
         } catch (\Throwable $e) {
-            return redirect()->route('asal_asets.index', [])->with('error', 'Cannot delete Asal Aset: ' . $e->getMessage());
+            return redirect()->route('asalAset.index', [])->with('error', 'Cannot delete Asal Aset: ' . $e->getMessage());
         }
     }
 
