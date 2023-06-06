@@ -148,9 +148,9 @@
 
                             <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                                 <span
-                                    class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{{ auth()->user()->nama_lengkap }}</span>
+                                    class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{{ auth()->user()->nama_lengkap ?? '' }}</span>
                                 <a href="profile-information.html"
-                                    class="hp-badge-text fw-normal hp-text-color-dark-30">{{ auth()->user()->role }}</a>
+                                    class="hp-badge-text fw-normal hp-text-color-dark-30">{{ auth()->user()->role ?? '' }}</a>
                             </div>
                         </div>
                     </div>
@@ -1557,14 +1557,14 @@
                 </div>
             </div>
 
-            <footer class="w-100 py-18 px-16 py-sm-24 px-sm-32 hp-bg-color-black-20 hp-bg-color-dark-90">
+            {{-- <footer class="w-100 py-18 px-16 py-sm-24 px-sm-32 hp-bg-color-black-20 hp-bg-color-dark-90">
                 <div class="row">
                     <div class="col-12">
                         <p class="hp-badge-text fw-semibold mb-0 text-center text-sm-start hp-text-color-dark-30">
                             COPYRIGHT ©2021 Hypeople, All rights Reserved</p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
         </div>
     </main>
 
