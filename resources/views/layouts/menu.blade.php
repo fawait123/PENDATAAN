@@ -77,6 +77,96 @@
                     </span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('jenisAset.index') }}" class="{{ Request::is('jenisAset*') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="E-Commerce" aria-label="User"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-umbrella"></i>
+                        </span>
+
+                        <span>Jenis Aset</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('aset.index') }}" class="{{ Request::is('aset*') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="E-Commerce" aria-label="User"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-tv"></i>
+                        </span>
+
+                        <span>Aset</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <div class="menu-title">TRANSAKSI</div>
+
+        <ul>
+            <li>
+                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-marker"></i>
+                        </span>
+
+                        <span>Peminjaman</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-book"></i>
+                        </span>
+
+                        <span>Pengembalian</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-trash-alt"></i>
+                        </span>
+
+                        <span>Penghapusan</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-bus"></i>
+                        </span>
+
+                        <span>Mutasi</span>
+                    </span>
+                </a>
+            </li>
         </ul>
     </li>
 </ul>
