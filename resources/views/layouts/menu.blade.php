@@ -63,6 +63,19 @@
                         <span>Peminjam</span>
                     </span>
                 </a>
+            <li>
+                <a href="{{ route('asalAset.index') }}" class="{{ Request::is('asalAset*') ? 'active' : '' }}">
+                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
+                        title="" data-bs-original-title="E-Commerce" aria-label="User"></div>
+
+                    <span>
+                        <span class="submenu-item-icon">
+                            <i class="fa fa-warehouse"></i>
+                        </span>
+
+                        <span>Asal Aset</span>
+                    </span>
+                </a>
             </li>
         </ul>
     </li>
