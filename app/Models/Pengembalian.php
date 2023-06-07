@@ -14,4 +14,19 @@ class Pengembalian extends Model
     protected $primaryKey = 'kd_pengembalian';
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function peminjaman()
+    {
+        return $this->belongsTo(Peminjaman::class,'kd_peminjaman');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(DetPengembalian::class,'kd_pengembalian');
+    }
 }

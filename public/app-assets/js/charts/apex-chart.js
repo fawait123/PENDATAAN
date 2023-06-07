@@ -4,22 +4,22 @@ let optionsAreaChart = {
         {
             name: "Visit",
             data: [
-                10877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 30457,
-                28459, 29840,
+                10877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                30457, 28459, 29840,
             ],
         },
         {
             name: "Click",
             data: [
-                8753, 21313, 24623, 28935, 27345, 23465, 27813, 29125, 26256, 24356,
-                20233, 24570,
+                8753, 21313, 24623, 28935, 27345, 23465, 27813, 29125, 26256,
+                24356, 20233, 24570,
             ],
         },
         {
             name: "Sales",
             data: [
-                6000, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                16233, 14570,
+                6000, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 16233, 14570,
             ],
         },
     ],
@@ -119,7 +119,10 @@ let optionsAreaChart = {
 };
 
 if (document.querySelector("#area-chart")) {
-    let chart = new ApexCharts(document.querySelector("#area-chart"), optionsAreaChart);
+    let chart = new ApexCharts(
+        document.querySelector("#area-chart"),
+        optionsAreaChart
+    );
     chart.render();
 }
 
@@ -217,7 +220,10 @@ let optionsBarChart = {
 
 if (document.querySelector("#bar-chart")) {
     setTimeout(() => {
-        let chart = new ApexCharts(document.querySelector("#bar-chart"), optionsBarChart);
+        let chart = new ApexCharts(
+            document.querySelector("#bar-chart"),
+            optionsBarChart
+        );
         chart.render();
     }, 300);
 }
@@ -415,7 +421,10 @@ let optionsCandlestickChart = {
 };
 
 if (document.querySelector("#candlestick-chart")) {
-    let chart = new ApexCharts(document.querySelector("#candlestick-chart"), optionsCandlestickChart);
+    let chart = new ApexCharts(
+        document.querySelector("#candlestick-chart"),
+        optionsCandlestickChart
+    );
     chart.render();
 }
 
@@ -425,15 +434,15 @@ let optionsColumnChart = {
         {
             name: "Earning",
             data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 39457,
-                22459, 39840,
+                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                39457, 22459, 39840,
             ],
         },
         {
             name: "Expense",
             data: [
-                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                12233, 14570,
+                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 12233, 14570,
             ],
         },
     ],
@@ -539,7 +548,10 @@ let optionsColumnChart = {
 };
 
 if (document.querySelector("#column-chart")) {
-    let chart = new ApexCharts(document.querySelector("#column-chart"), optionsColumnChart);
+    let chart = new ApexCharts(
+        document.querySelector("#column-chart"),
+        optionsColumnChart
+    );
     chart.render();
 }
 
@@ -584,9 +596,12 @@ let optionsDonutChart = {
                         fontSize: "16px",
                         label: "Total",
                         formatter: function (w) {
-                            return `$ ${w.globals.seriesTotals.reduce((a, b) => {
-                                return a + b;
-                            }, 0)}`;
+                            return `$ ${w.globals.seriesTotals.reduce(
+                                (a, b) => {
+                                    return a + b;
+                                },
+                                0
+                            )}`;
                         },
                     },
                 },
@@ -610,7 +625,10 @@ let optionsDonutChart = {
 };
 
 if (document.querySelector("#donut-chart")) {
-    let chart = new ApexCharts(document.querySelector("#donut-chart"), optionsDonutChart);
+    let chart = new ApexCharts(
+        document.querySelector("#donut-chart"),
+        optionsDonutChart
+    );
     chart.render();
 }
 
@@ -621,7 +639,8 @@ function generateData(count, yrange) {
     while (i < count) {
         const x = `w${(i + 1).toString()}`;
         const y =
-            Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            Math.floor(Math.random() * (yrange.max - yrange.min + 1)) +
+            yrange.min;
 
         series.push({
             x,
@@ -777,7 +796,10 @@ let optionsHeatmapChart = {
 };
 
 if (document.querySelector("#heatmap-chart")) {
-    let chart = new ApexCharts(document.querySelector("#heatmap-chart"), optionsHeatmapChart);
+    let chart = new ApexCharts(
+        document.querySelector("#heatmap-chart"),
+        optionsHeatmapChart
+    );
     chart.render();
 }
 
@@ -787,15 +809,15 @@ let optionsLineChart = {
         {
             name: "Ads",
             data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 39457,
-                22459, 39840,
+                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                39457, 22459, 39840,
             ],
         },
         {
             name: "Organic",
             data: [
-                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                12233, 14570,
+                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 12233, 14570,
             ],
         },
     ],
@@ -891,7 +913,10 @@ let optionsLineChart = {
 };
 
 if (document.querySelector("#line-chart")) {
-    let chart = new ApexCharts(document.querySelector("#line-chart"), optionsLineChart);
+    let chart = new ApexCharts(
+        document.querySelector("#line-chart"),
+        optionsLineChart
+    );
     chart.render();
 }
 
@@ -974,7 +999,10 @@ let optionsRadarChart = {
 };
 
 if (document.querySelector("#radar-chart")) {
-    let chart = new ApexCharts(document.querySelector("#radar-chart"), optionsRadarChart);
+    let chart = new ApexCharts(
+        document.querySelector("#radar-chart"),
+        optionsRadarChart
+    );
     chart.render();
 }
 
@@ -1050,7 +1078,10 @@ let optionsRadialbarChart = {
 };
 
 if (document.querySelector("#radialbar-chart")) {
-    let chart = new ApexCharts(document.querySelector("#radialbar-chart"), optionsRadialbarChart);
+    let chart = new ApexCharts(
+        document.querySelector("#radialbar-chart"),
+        optionsRadialbarChart
+    );
     chart.render();
 }
 
@@ -1243,7 +1274,10 @@ let optionsScatterChart = {
 };
 
 if (document.querySelector("#scatter-chart")) {
-    let chart = new ApexCharts(document.querySelector("#scatter-chart"), optionsScatterChart);
+    let chart = new ApexCharts(
+        document.querySelector("#scatter-chart"),
+        optionsScatterChart
+    );
     chart.render();
 }
 
@@ -1334,7 +1368,10 @@ let optionsEcommerceEarningDonutCard = {
 };
 
 if (document.querySelector("#earnings-donut-card")) {
-    let chart = new ApexCharts(document.querySelector("#earnings-donut-card"), optionsEcommerceEarningDonutCard);
+    let chart = new ApexCharts(
+        document.querySelector("#earnings-donut-card"),
+        optionsEcommerceEarningDonutCard
+    );
     chart.render();
 }
 
@@ -1352,7 +1389,7 @@ let optionsAnalyticsBalanceChart = {
     fill: {
         opacity: 1,
         colors: [
-            document.body.classList.contains("dark") ? "#ffffff" : "#2D3436"
+            document.body.classList.contains("dark") ? "#ffffff" : "#2D3436",
         ],
     },
     chart: {
@@ -1458,10 +1495,10 @@ let optionsAnalyticsBalanceChart = {
         min: 0,
         max: 60000,
         tickAmount: 4,
-    }
+    },
 };
 
-if (document.querySelector("#dashboard-analytics-balance-chart")) {
-    let chart = new ApexCharts(document.querySelector("#dashboard-analytics-balance-chart"), optionsAnalyticsBalanceChart);
-    chart.render();
-}
+// if (document.querySelector("#dashboard-analytics-balance-chart")) {
+//     let chart = new ApexCharts(document.querySelector("#dashboard-analytics-balance-chart"), optionsAnalyticsBalanceChart);
+//     chart.render();
+// }

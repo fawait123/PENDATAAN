@@ -1,112 +1,146 @@
 // Config
 function themeConfig(data) {
     // Light & Dark
-    if (localStorage.getItem('theme')) {
-        if (localStorage.getItem('theme') === 'dark') {
-            $("body").addClass("dark")
-            $("body").removeClass("light")
+    if (localStorage.getItem("theme")) {
+        if (localStorage.getItem("theme") === "dark") {
+            $("body").addClass("dark");
+            $("body").removeClass("light");
 
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="light"]').removeClass("active")
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="dark"]').addClass("active")
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="light"]'
+            ).removeClass("active");
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="dark"]'
+            ).addClass("active");
 
-            localStorage.setItem('theme', 'dark');
-        } else if (localStorage.getItem('theme') === 'light') {
-            $("body").addClass("light")
-            $("body").removeClass("dark")
+            localStorage.setItem("theme", "dark");
+        } else if (localStorage.getItem("theme") === "light") {
+            $("body").addClass("light");
+            $("body").removeClass("dark");
 
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="dark"]').removeClass("active")
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="light"]').addClass("active")
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="dark"]'
+            ).removeClass("active");
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="light"]'
+            ).addClass("active");
 
-            localStorage.setItem('theme', 'light');
+            localStorage.setItem("theme", "light");
         }
     } else {
         if (!$("body").hasClass("dark")) {
-            $("body").addClass("light")
-            $("body").removeClass("dark")
+            $("body").addClass("light");
+            $("body").removeClass("dark");
 
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="dark"]').removeClass("active")
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="light"]').addClass("active")
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="dark"]'
+            ).removeClass("active");
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="light"]'
+            ).addClass("active");
         } else if ($("body").hasClass("dark")) {
-            $("body").addClass("dark")
-            $("body").removeClass("light")
+            $("body").addClass("dark");
+            $("body").removeClass("light");
 
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="light"]').removeClass("active")
-            $('.hp-theme-customizer-container-body-item-svg[data-theme="dark"]').addClass("active")
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="light"]'
+            ).removeClass("active");
+            $(
+                '.hp-theme-customizer-container-body-item-svg[data-theme="dark"]'
+            ).addClass("active");
         }
     }
 
     // Content Width
     if (data.contentWidth === "boxed") {
-        $("body").addClass("content-width-boxed")
+        $("body").addClass("content-width-boxed");
 
-        $('.hp-theme-customizer-container-body-item-svg[data-content="full"]').removeClass("active")
-        $('.hp-theme-customizer-container-body-item-svg[data-content="boxed"]').addClass("active")
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="full"]'
+        ).removeClass("active");
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="boxed"]'
+        ).addClass("active");
     } else if (data.contentWidth === "full") {
-        $('.hp-theme-customizer-container-body-item-svg[data-content="boxed"]').removeClass("active")
-        $('.hp-theme-customizer-container-body-item-svg[data-content="full"]').addClass("active")
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="boxed"]'
+        ).removeClass("active");
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="full"]'
+        ).addClass("active");
     }
 
     if ($("body").hasClass("content-width-boxed")) {
-        $('.hp-theme-customizer-container-body-item-svg[data-content="full"]').removeClass("active")
-        $('.hp-theme-customizer-container-body-item-svg[data-content="boxed"]').addClass("active")
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="full"]'
+        ).removeClass("active");
+        $(
+            '.hp-theme-customizer-container-body-item-svg[data-content="boxed"]'
+        ).addClass("active");
     }
 }
 
 themeConfig({
-    contentWidth: 'full' // boxed - full
+    contentWidth: "full", // boxed - full
 });
 
 // Open & Close
 $(".hp-theme-customizer-button").click(function () {
-    $(".hp-theme-customizer").toggleClass("active")
-})
+    $(".hp-theme-customizer").toggleClass("active");
+});
 
 $(".hp-theme-customizer-container-header button").click(function () {
-    $(".hp-theme-customizer").removeClass("active")
-})
+    $(".hp-theme-customizer").removeClass("active");
+});
 
 // Click Item
 $(".hp-theme-customizer-container-body-item-svg").click(function () {
-    $(this).addClass("active")
-    $(this).parent().siblings().children(".hp-theme-customizer-container-body-item-svg").removeClass("active")
+    $(this).addClass("active");
+    $(this)
+        .parent()
+        .siblings()
+        .children(".hp-theme-customizer-container-body-item-svg")
+        .removeClass("active");
 
     // Light & Dark
     if ($(this).data("theme") === "light") {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem("theme", "light");
 
-        $("body").addClass("light")
-        $("body").removeClass("dark")
+        $("body").addClass("light");
+        $("body").removeClass("dark");
     } else if ($(this).data("theme") === "dark") {
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem("theme", "dark");
 
-        $("body").addClass("dark")
-        $("body").removeClass("light")
+        $("body").addClass("dark");
+        $("body").removeClass("light");
     }
 
     // Content Width
     if ($(this).data("content") === "full") {
-        $("body").removeClass("content-width-boxed")
+        $("body").removeClass("content-width-boxed");
     } else if ($(this).data("content") === "boxed") {
-        $("body").addClass("content-width-boxed")
+        $("body").addClass("content-width-boxed");
     }
-})
+});
 // Scroll to Top
 $(".scroll-to-top").click(function () {
-    $(window).scrollTop(0)
+    $(window).scrollTop(0);
 });
 
 $(window).scroll(function () {
-    if ($(this).scrollTop() > (window.innerHeight / 3)) {
-        $(".scroll-to-top").addClass("active")
+    if ($(this).scrollTop() > window.innerHeight / 3) {
+        $(".scroll-to-top").addClass("active");
     } else {
-        $(".scroll-to-top").removeClass("active")
+        $(".scroll-to-top").removeClass("active");
     }
 });
 
 // Wish Button
-$(".hp-wish-button").click(function(){
-    $(this).toggleClass("text-danger bg-danger-4 hp-bg-color-dark-danger")
-    $(this).toggleClass("text-black-40 hp-text-color-dark-70 bg-black-10 hp-bg-color-dark-90")
+$(".hp-wish-button").click(function () {
+    $(this).toggleClass("text-danger bg-danger-4 hp-bg-color-dark-danger");
+    $(this).toggleClass(
+        "text-black-40 hp-text-color-dark-70 bg-black-10 hp-bg-color-dark-90"
+    );
 });
 
 // Date Timer (Page Error Coming Soon)
@@ -125,10 +159,10 @@ $(".data-date-timer").each(function () {
                 m = mins - hours * 60,
                 s = secs - mins * 60;
 
-            $(this).find("*[data-date-timer-day]").text(d)
-            $(this).find("*[data-date-timer-hours]").text(h)
-            $(this).find("*[data-date-timer-minutes]").text(m)
-            $(this).find("*[data-date-timer-seconds]").text(s)
+            $(this).find("*[data-date-timer-day]").text(d);
+            $(this).find("*[data-date-timer-hours]").text(h);
+            $(this).find("*[data-date-timer-minutes]").text(m);
+            $(this).find("*[data-date-timer-seconds]").text(s);
         }, 1000);
     }
 });
@@ -139,10 +173,12 @@ $("*[data-search]").keyup(function () {
     let patt = new RegExp(value, "i");
 
     $("*[data-search-item]").each(function () {
-        if (!($(this).find("*[data-search-item-text]").text().search(patt) >= 0)) {
+        if (
+            !($(this).find("*[data-search-item-text]").text().search(patt) >= 0)
+        ) {
             $(this).hide();
         }
-        if (($(this).find("*[data-search-item-text]").text().search(patt) >= 0)) {
+        if ($(this).find("*[data-search-item-text]").text().search(patt) >= 0) {
             $(this).show();
         }
     });
@@ -151,41 +187,53 @@ $("*[data-search]").keyup(function () {
 // Copy Text
 setTimeout(() => {
     $("*[data-copy-click]").each(function () {
-        let itemId = $(this).find("*[data-copy-id]")
+        let itemId = $(this).find("*[data-copy-id]");
 
         if ($(this).data("copy-click") === "value") {
-            $(this).find("*[data-copy-click-id]").click(function (e) {
-                if ($(this).data("copy-click-id") === itemId.data("copy-id")) {
-                    let copyText = itemId.val();
+            $(this)
+                .find("*[data-copy-click-id]")
+                .click(function (e) {
+                    if (
+                        $(this).data("copy-click-id") === itemId.data("copy-id")
+                    ) {
+                        let copyText = itemId.val();
 
-                    navigator.clipboard.writeText(copyText);
-                }
-            })
-        } else {
-            $(this).find("*[data-copy-click-id]").click(function (e) {
-                if ($(this).data("copy-click-id") === itemId.data("copy-id")) {
-                    if (itemId.find("*[data-copy]")) {
-                        navigator.clipboard.writeText(itemId.find("*[data-copy]").data("copy"));
-                    } else {
-                        navigator.clipboard.writeText(itemId.text());
+                        navigator.clipboard.writeText(copyText);
                     }
-                }
-            })
+                });
+        } else {
+            $(this)
+                .find("*[data-copy-click-id]")
+                .click(function (e) {
+                    if (
+                        $(this).data("copy-click-id") === itemId.data("copy-id")
+                    ) {
+                        if (itemId.find("*[data-copy]")) {
+                            navigator.clipboard.writeText(
+                                itemId.find("*[data-copy]").data("copy")
+                            );
+                        } else {
+                            navigator.clipboard.writeText(itemId.text());
+                        }
+                    }
+                });
         }
     });
 }, 300);
 
 // Payment Input Mask
-$('#payment-cardnumber').mask('0000 0000 0000 0000');
-$('#payment-date').mask('00/00');
-$('#payment-cvc').mask('000');
-$('#phone').mask('(000) 000-0000');
+$("#payment-cardnumber").mask("0000 0000 0000 0000");
+$("#payment-date").mask("00/00");
+$("#payment-cvc").mask("000");
+$("#phone").mask("(000) 000-0000");
 
 // Tooltip
-let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+let tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
 tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
 
 // Browser Chrome Chart
 let optionsBrowserChromeChart = {
@@ -230,7 +278,10 @@ let optionsBrowserChromeChart = {
 };
 
 if (document.querySelector("#browser-chrome-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-chrome-chart"), optionsBrowserChromeChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-chrome-chart"),
+        optionsBrowserChromeChart
+    );
     chart.render();
 }
 
@@ -277,7 +328,10 @@ let optionsBrowserEdgeChart = {
 };
 
 if (document.querySelector("#browser-edge-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-edge-chart"), optionsBrowserEdgeChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-edge-chart"),
+        optionsBrowserEdgeChart
+    );
     chart.render();
 }
 
@@ -324,7 +378,10 @@ let optionsBrowserFirefoxChart = {
 };
 
 if (document.querySelector("#browser-firefox-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-firefox-chart"), optionsBrowserFirefoxChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-firefox-chart"),
+        optionsBrowserFirefoxChart
+    );
     chart.render();
 }
 
@@ -371,7 +428,10 @@ let optionsBrowserOperaChart = {
 };
 
 if (document.querySelector("#browser-opera-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-opera-chart"), optionsBrowserOperaChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-opera-chart"),
+        optionsBrowserOperaChart
+    );
     chart.render();
 }
 
@@ -418,7 +478,10 @@ let optionsBrowserOtherChart = {
 };
 
 if (document.querySelector("#browser-other-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-other-chart"), optionsBrowserOtherChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-other-chart"),
+        optionsBrowserOtherChart
+    );
     chart.render();
 }
 
@@ -465,7 +528,10 @@ let optionsBrowserSafariChart = {
 };
 
 if (document.querySelector("#browser-safari-chart")) {
-    let chart = new ApexCharts(document.querySelector("#browser-safari-chart"), optionsBrowserSafariChart);
+    let chart = new ApexCharts(
+        document.querySelector("#browser-safari-chart"),
+        optionsBrowserSafariChart
+    );
     chart.render();
 }
 
@@ -538,7 +604,10 @@ let optionsEarningsChart = {
 };
 
 if (document.querySelector("#earnings-chart")) {
-    let chart = new ApexCharts(document.querySelector("#earnings-chart"), optionsEarningsChart);
+    let chart = new ApexCharts(
+        document.querySelector("#earnings-chart"),
+        optionsEarningsChart
+    );
     chart.render();
 }
 
@@ -631,7 +700,10 @@ let optionsExpensesDonutCard = {
 };
 
 if (document.querySelector("#expenses-donut-card")) {
-    let chart = new ApexCharts(document.querySelector("#expenses-donut-card"), optionsExpensesDonutCard);
+    let chart = new ApexCharts(
+        document.querySelector("#expenses-donut-card"),
+        optionsExpensesDonutCard
+    );
     chart.render();
 }
 // Analytics Energy
@@ -697,7 +769,10 @@ let optionsAnalyticsEnergy = {
 };
 
 if (document.querySelector("#analytics-energy-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-energy-chart"), optionsAnalyticsEnergy);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-energy-chart"),
+        optionsAnalyticsEnergy
+    );
     chart.render();
 }
 
@@ -787,7 +862,10 @@ let optionsAnalyticsExpenses = {
 };
 
 if (document.querySelector("#analytics-expenses-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-expenses-chart"), optionsAnalyticsExpenses);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-expenses-chart"),
+        optionsAnalyticsExpenses
+    );
     chart.render();
 }
 
@@ -875,7 +953,10 @@ let optionsAnalyticsMarketplace = {
 };
 
 if (document.querySelector("#analytics-marketplace-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-marketplace-chart"), optionsAnalyticsMarketplace);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-marketplace-chart"),
+        optionsAnalyticsMarketplace
+    );
     chart.render();
 }
 
@@ -885,15 +966,15 @@ let optionsAnalyticsRevenue1 = {
         {
             name: "Earning",
             data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 39457,
-                22459, 39840,
+                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                39457, 22459, 39840,
             ],
         },
         {
             name: "Expense",
             data: [
-                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                12233, 14570,
+                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 12233, 14570,
             ],
         },
     ],
@@ -1000,7 +1081,10 @@ let optionsAnalyticsRevenue1 = {
 };
 
 if (document.querySelector("#analytics-revenue-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-revenue-chart"), optionsAnalyticsRevenue1);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-revenue-chart"),
+        optionsAnalyticsRevenue1
+    );
     chart.render();
 }
 
@@ -1085,7 +1169,10 @@ let optionsAnalyticsRevenue2 = {
 };
 
 if (document.querySelector("#analytics-revenue-2-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-revenue-2-chart"), optionsAnalyticsRevenue2);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-revenue-2-chart"),
+        optionsAnalyticsRevenue2
+    );
     chart.render();
 }
 
@@ -1249,7 +1336,10 @@ let optionsAnalyticsTraffic = {
 };
 
 if (document.querySelector("#analytics-Traffic-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-Traffic-chart"), optionsAnalyticsTraffic);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-Traffic-chart"),
+        optionsAnalyticsTraffic
+    );
     chart.render();
 }
 
@@ -1338,7 +1428,10 @@ let optionsAnalyticsVisit = {
 };
 
 if (document.querySelector("#analytics-visit-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-visit-chart"), optionsAnalyticsVisit);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-visit-chart"),
+        optionsAnalyticsVisit
+    );
     chart.render();
 }
 
@@ -1413,9 +1506,9 @@ let optionsAnalyticsVisiters = {
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     },
     legend: {
-        position: 'top',
-        horizontalAlign: 'right',
-        offsetX: 40
+        position: "top",
+        horizontalAlign: "right",
+        offsetX: 40,
     },
     yaxis: {
         labels: {
@@ -1435,10 +1528,13 @@ let optionsAnalyticsVisiters = {
 };
 
 if (document.querySelector("#analytics-visiters-chart")) {
-    let chart = new ApexCharts(document.querySelector("#analytics-visiters-chart"), optionsAnalyticsVisiters);
+    let chart = new ApexCharts(
+        document.querySelector("#analytics-visiters-chart"),
+        optionsAnalyticsVisiters
+    );
     chart.render();
 }
-// Statistics Revenue 1 
+// Statistics Revenue 1
 let optionsStatisticsRevenue1 = {
     series: [
         {
@@ -1523,7 +1619,10 @@ let optionsStatisticsRevenue1 = {
 };
 
 if (document.querySelector("#statistics-revenue-1")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-revenue-1"), optionsStatisticsRevenue1);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-revenue-1"),
+        optionsStatisticsRevenue1
+    );
     chart.render();
 }
 
@@ -1608,7 +1707,10 @@ let optionsStatisticsRevenue2 = {
 };
 
 if (document.querySelector("#statistics-revenue-2")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-revenue-2"), optionsStatisticsRevenue2);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-revenue-2"),
+        optionsStatisticsRevenue2
+    );
     chart.render();
 }
 
@@ -1693,7 +1795,10 @@ let optionsStatisticsRevenue3 = {
 };
 
 if (document.querySelector("#statistics-revenue-3")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-revenue-3"), optionsStatisticsRevenue3);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-revenue-3"),
+        optionsStatisticsRevenue3
+    );
     chart.render();
 }
 
@@ -1763,7 +1868,10 @@ let optionsStatisticsOrder = {
 };
 
 if (document.querySelector("#statistics-order")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-order"), optionsStatisticsOrder);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-order"),
+        optionsStatisticsOrder
+    );
     chart.render();
 }
 
@@ -1833,7 +1941,10 @@ let optionsStatisticsOrderVertical = {
 };
 
 if (document.querySelector("#statistics-order-vertical")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-order-vertical"), optionsStatisticsOrderVertical);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-order-vertical"),
+        optionsStatisticsOrderVertical
+    );
     chart.render();
 }
 
@@ -1903,7 +2014,10 @@ let optionsStatisticsSubscribe = {
 };
 
 if (document.querySelector("#statistics-subscribe")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-subscribe"), optionsStatisticsSubscribe);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-subscribe"),
+        optionsStatisticsSubscribe
+    );
     chart.render();
 }
 
@@ -1973,7 +2087,10 @@ let optionsStatisticsSubscribeVertical = {
 };
 
 if (document.querySelector("#statistics-subscribe-vertical")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-subscribe-vertical"), optionsStatisticsSubscribeVertical);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-subscribe-vertical"),
+        optionsStatisticsSubscribeVertical
+    );
     chart.render();
 }
 
@@ -2060,7 +2177,10 @@ let optionsStatisticsTicket = {
 };
 
 if (document.querySelector("#statistics-ticket")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-ticket"), optionsStatisticsTicket);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-ticket"),
+        optionsStatisticsTicket
+    );
     chart.render();
 }
 
@@ -2147,7 +2267,10 @@ let optionsStatisticsTicketVertical = {
 };
 
 if (document.querySelector("#statistics-ticket-vertical")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-ticket-vertical"), optionsStatisticsTicketVertical);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-ticket-vertical"),
+        optionsStatisticsTicketVertical
+    );
     chart.render();
 }
 
@@ -2248,7 +2371,10 @@ let optionsStatisticsTraffic = {
 };
 
 if (document.querySelector("#statistics-traffic")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-traffic"), optionsStatisticsTraffic);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-traffic"),
+        optionsStatisticsTraffic
+    );
     chart.render();
 }
 
@@ -2335,7 +2461,10 @@ let optionsStatisticsUsers = {
 };
 
 if (document.querySelector("#statistics-users")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-users"), optionsStatisticsUsers);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-users"),
+        optionsStatisticsUsers
+    );
     chart.render();
 }
 
@@ -2422,35 +2551,45 @@ let optionsStatisticsUsersVertical = {
 };
 
 if (document.querySelector("#statistics-users-vertical")) {
-    let chart = new ApexCharts(document.querySelector("#statistics-users-vertical"), optionsStatisticsUsersVertical);
+    let chart = new ApexCharts(
+        document.querySelector("#statistics-users-vertical"),
+        optionsStatisticsUsersVertical
+    );
     chart.render();
 }
 
 // Header Search
 $(function () {
     $(".hp-header-search-button").click(function () {
-        $("header .hp-header-text-info").toggleClass("d-none")
-        $("header .hp-header-search").toggleClass("d-none")
-        $(this).find("button .hp-header-search-button-icon-1").toggleClass("d-none")
-        $(this).find("button .hp-header-search-button-icon-2").toggleClass("d-none")
+        $("header .hp-header-text-info").toggleClass("d-none");
+        $("header .hp-header-search").toggleClass("d-none");
+        $(this)
+            .find("button .hp-header-search-button-icon-1")
+            .toggleClass("d-none");
+        $(this)
+            .find("button .hp-header-search-button-icon-2")
+            .toggleClass("d-none");
 
-        $("header .hp-horizontal-menu").toggleClass("search-active")
+        $("header .hp-horizontal-menu").toggleClass("search-active");
 
         setTimeout(() => {
-            $("header .hp-header-search").toggleClass("active")
+            $("header .hp-header-search").toggleClass("active");
 
             if (!$("header .hp-header-search").hasClass("active")) {
-                $("#header-search").val("")
+                $("#header-search").val("");
             }
 
             setTimeout(() => {
-                $("#header-search").focus()
+                $("#header-search").focus();
             }, 300);
         }, 100);
     });
 
     $("#header-search").keyup(function () {
-        $(".autocomplete-suggestions").css("width", $("header .hp-header-search").width() + "px")
+        $(".autocomplete-suggestions").css(
+            "width",
+            $("header .hp-header-search").width() + "px"
+        );
     });
 
     //--
@@ -2458,341 +2597,341 @@ $(function () {
     let data = [
         {
             value: "Components",
-            url: "components-page"
+            url: "components-page",
         },
 
         {
             value: "Dashboard Analytics",
-            url: "dashboard-analytics"
+            url: "dashboard-analytics",
         },
         {
             value: "Dashboard Ecommerce",
-            url: "dashboard-ecommerce"
+            url: "dashboard-ecommerce",
         },
 
         {
             value: "Advance Cards",
-            url: "advance-cards"
+            url: "advance-cards",
         },
         {
             value: "Statistics Cards",
-            url: "statistics-cards"
+            url: "statistics-cards",
         },
         {
             value: "Analytics Cards",
-            url: "analytics-cards"
+            url: "analytics-cards",
         },
         {
             value: "Charts",
-            url: "charts"
+            url: "charts",
         },
         {
             value: "Illustration Set",
-            url: "illustration-set"
+            url: "illustration-set",
         },
         {
             value: "Crypto Icons",
-            url: "crypto-icons"
+            url: "crypto-icons",
         },
         {
             value: "User Icons",
-            url: "user-icons"
+            url: "user-icons",
         },
         {
             value: "Flags",
-            url: "flags"
+            url: "flags",
         },
 
         {
             value: "Divider",
-            url: "divider"
+            url: "divider",
         },
         {
             value: "Grid System",
-            url: "grid-system"
+            url: "grid-system",
         },
 
         {
             value: "Contact",
-            url: "app-contact"
+            url: "app-contact",
         },
         {
             value: "Ecommerce Shop",
-            url: "ecommerce-shop"
+            url: "ecommerce-shop",
         },
         {
             value: "Ecommerce Wishlist",
-            url: "ecommerce-wishlist"
+            url: "ecommerce-wishlist",
         },
         {
             value: "Ecommerce Detail",
-            url: "ecommerce-product-detail"
+            url: "ecommerce-product-detail",
         },
         {
             value: "Ecommerce Checkout",
-            url: "ecommerce-checkout"
+            url: "ecommerce-checkout",
         },
 
         {
             value: "404 Error Page",
-            url: "error-404"
+            url: "error-404",
         },
         {
             value: "403 Error Page",
-            url: "error-403"
+            url: "error-403",
         },
         {
             value: "500 Error Page",
-            url: "error-500"
+            url: "error-500",
         },
         {
             value: "503 Error Page",
-            url: "error-503"
+            url: "error-503",
         },
         {
             value: "502 Error Page",
-            url: "error-502"
+            url: "error-502",
         },
         {
             value: "Maintenance",
-            url: "error-maintenance"
+            url: "error-maintenance",
         },
         {
             value: "Coming Soon",
-            url: "error-coming-soon"
+            url: "error-coming-soon",
         },
 
         {
             value: "Pricing",
-            url: "pricing"
+            url: "pricing",
         },
 
         {
             value: "Profile",
-            url: "profile-information"
+            url: "profile-information",
         },
         {
             value: "Profile Notification",
-            url: "profile-notifications"
+            url: "profile-notifications",
         },
         {
             value: "Profile Activity",
-            url: "profile-activity"
+            url: "profile-activity",
         },
         {
             value: "Profile Security",
-            url: "profile-security"
+            url: "profile-security",
         },
         {
             value: "Profile Password Change",
-            url: "profile-password"
+            url: "profile-password",
         },
         {
             value: "Profile Social",
-            url: "profile-connect"
+            url: "profile-connect",
         },
 
         {
             value: "Invoice",
-            url: "invoice-page"
+            url: "invoice-page",
         },
 
         {
             value: "FAQ",
-            url: "faq-page"
+            url: "faq-page",
         },
 
         {
             value: "Knowledge Base 1",
-            url: "knowledge-base-1"
+            url: "knowledge-base-1",
         },
         {
             value: "Knowledge Base 2",
-            url: "knowledge-base-2"
+            url: "knowledge-base-2",
         },
 
         {
             value: "Blank",
-            url: "blank-page"
+            url: "blank-page",
         },
 
         {
             value: "Login",
-            url: "auth-login"
+            url: "auth-login",
         },
         {
             value: "Register",
-            url: "auth-register"
+            url: "auth-register",
         },
         {
             value: "Recover Password",
-            url: "auth-recover"
+            url: "auth-recover",
         },
         {
             value: "Reset Password",
-            url: "auth-reset"
+            url: "auth-reset",
         },
 
         {
             value: "Welcome",
-            url: "lock-welcome"
+            url: "lock-welcome",
         },
         {
             value: "Password is changed",
-            url: "lock-password"
+            url: "lock-password",
         },
         {
             value: "Deactivated",
-            url: "lock-deactivated"
+            url: "lock-deactivated",
         },
         {
             value: "Lock",
-            url: "lock"
+            url: "lock",
         },
 
         {
             value: "StyleGuide",
-            url: "general-style-guide"
+            url: "general-style-guide",
         },
         {
             value: "Buttons",
-            url: "general-buttons"
+            url: "general-buttons",
         },
         {
             value: "Remix Icons",
-            url: "general-remix-icons"
+            url: "general-remix-icons",
         },
         {
             value: "Iconly Icons",
-            url: "general-iconly-icons"
+            url: "general-iconly-icons",
         },
 
         {
             value: "Breadcrumb",
-            url: "component-breadcrumb"
+            url: "component-breadcrumb",
         },
         {
             value: "Dropdown",
-            url: "component-dropdown"
+            url: "component-dropdown",
         },
         {
             value: "Menu",
-            url: "component-menu"
+            url: "component-menu",
         },
         {
             value: "Pagination",
-            url: "component-pagination"
+            url: "component-pagination",
         },
 
         {
             value: "Checkbox",
-            url: "component-checkbox"
+            url: "component-checkbox",
         },
         {
             value: "Form",
-            url: "component-form"
+            url: "component-form",
         },
         {
             value: "Input",
-            url: "component-input"
+            url: "component-input",
         },
         {
             value: "Input Number",
-            url: "component-input-number"
+            url: "component-input-number",
         },
         {
             value: "Radio",
-            url: "component-radio"
+            url: "component-radio",
         },
         {
             value: "Select",
-            url: "component-select"
+            url: "component-select",
         },
         {
             value: "Slider",
-            url: "component-slider"
+            url: "component-slider",
         },
         {
             value: "Switch",
-            url: "component-switch"
+            url: "component-switch",
         },
 
         {
             value: "Avatar",
-            url: "component-avatar"
+            url: "component-avatar",
         },
         {
             value: "Badge",
-            url: "component-badge"
+            url: "component-badge",
         },
         {
             value: "Card",
-            url: "component-card"
+            url: "component-card",
         },
         {
             value: "Carousel",
-            url: "component-carousel"
+            url: "component-carousel",
         },
         {
             value: "Accordion",
-            url: "component-accordion"
+            url: "component-accordion",
         },
         {
             value: "Collapse",
-            url: "component-collapse"
+            url: "component-collapse",
         },
         {
             value: "List",
-            url: "component-list"
+            url: "component-list",
         },
         {
             value: "Popover",
-            url: "component-popover"
+            url: "component-popover",
         },
         {
             value: "Table",
-            url: "component-table"
+            url: "component-table",
         },
         {
             value: "Tabs",
-            url: "component-tabs"
+            url: "component-tabs",
         },
         {
             value: "Tooltip",
-            url: "component-tooltip"
+            url: "component-tooltip",
         },
 
         {
             value: "Alert",
-            url: "component-alert"
+            url: "component-alert",
         },
         {
             value: "Drawer",
-            url: "component-drawer"
+            url: "component-drawer",
         },
         {
             value: "Modal",
-            url: "component-modal"
+            url: "component-modal",
         },
         {
             value: "Notification",
-            url: "component-notification"
+            url: "component-notification",
         },
         {
             value: "Progress",
-            url: "component-progress"
+            url: "component-progress",
         },
         {
             value: "Spinner",
-            url: "component-spinner"
-        }
+            url: "component-spinner",
+        },
     ];
 
-    $('#header-search').autocomplete({
+    $("#header-search").autocomplete({
         lookup: data,
         onSelect: function (event) {
-            window.location.href = event.url + ".html"
-        }
+            window.location.href = event.url + ".html";
+        },
     });
 });
 
@@ -2800,58 +2939,69 @@ $(function () {
 $(function () {
     // Menu Link
     $(".hp-horizontal-menu ul li a").each(function () {
-        if (window.location.pathname.split("/")[window.location.pathname.split("/").length - 1] == $(this).attr("href")) {
-            $(this).addClass("active")
-            $(this).parent().parent().prev(".dropdown-item").addClass("active")
-            $(this).parents(".dropdown-menu").prev("a").addClass("active")
+        if (
+            window.location.pathname.split("/")[
+                window.location.pathname.split("/").length - 1
+            ] == $(this).attr("href")
+        ) {
+            $(this).addClass("active");
+            $(this).parent().parent().prev(".dropdown-item").addClass("active");
+            $(this).parents(".dropdown-menu").prev("a").addClass("active");
         }
     });
-})
+});
 
 // Sider
 $(function () {
     // Menu Link
     $(".hp-sidebar-container li a").each(function () {
-        if (window.location.pathname.split("/")[window.location.pathname.split("/").length - 1] == $(this).attr("href")) {
-            $(this).addClass("active")
+        if (
+            window.location.pathname.split("/")[
+                window.location.pathname.split("/").length - 1
+            ] == $(this).attr("href")
+        ) {
+            $(this).addClass("active");
 
-            $(this).parents(".submenu-children").slideDown()
-            $(this).parents(".submenu-children").addClass("active")
-            $(this).parents(".submenu-children").prev("a").addClass("active arrow-active")
+            $(this).parents(".submenu-children").slideDown();
+            $(this).parents(".submenu-children").addClass("active");
+            $(this)
+                .parents(".submenu-children")
+                .prev("a")
+                .addClass("active arrow-active");
         }
     });
 
     // Menu Dropdown
     $(".hp-sidebar-container li a").click(function () {
         if ($(this).next(".submenu-children").length) {
-            $(this).toggleClass("arrow-active")
-            $(this).next(".submenu-children").slideToggle(300)
+            $(this).toggleClass("arrow-active");
+            $(this).next(".submenu-children").slideToggle(300);
         }
     });
 
     // Mobile Button
     $(".hp-mobile-sidebar-button").click(function () {
-        $("body").removeClass("collapsed-active collapse-btn-none")
+        $("body").removeClass("collapsed-active collapse-btn-none");
     });
 
     // Collapsed
     $(".hp-sidebar .hp-sidebar-collapse-button").click(function () {
-        $("body").toggleClass("collapsed-active")
-        $(".hp-sidebar .submenu-children").slideUp()
-        $(".hp-sidebar li a").removeClass("arrow-active")
-        $(".hp-sidebar .tooltip-item").toggleClass("in-active")
+        $("body").toggleClass("collapsed-active");
+        $(".hp-sidebar .submenu-children").slideUp();
+        $(".hp-sidebar li a").removeClass("arrow-active");
+        $(".hp-sidebar .tooltip-item").toggleClass("in-active");
 
         if ($("body").hasClass("collapsed-active")) {
-            $(".hp-sidebar .submenu-children").addClass("d-none")
+            $(".hp-sidebar .submenu-children").addClass("d-none");
         } else {
-            $(".hp-sidebar .submenu-children").removeClass("d-none")
-            $(".hp-sidebar .submenu-children").css("display", "none")
+            $(".hp-sidebar .submenu-children").removeClass("d-none");
+            $(".hp-sidebar .submenu-children").css("display", "none");
         }
     });
 
     if ($("body").hasClass("collapsed-active")) {
-        $(".hp-sidebar .submenu-children").addClass("d-none")
-        $(".hp-sidebar .tooltip-item").removeClass("in-active")
+        $(".hp-sidebar .submenu-children").addClass("d-none");
+        $(".hp-sidebar .tooltip-item").removeClass("in-active");
     }
 
     // Collapsed Menu Dropdown
@@ -2864,7 +3014,8 @@ $(function () {
 
     $(".hp-sidebar-container li a").mouseenter(function () {
         if ($("body").hasClass("collapsed-active")) {
-            sidebarWidth = parseInt($(this).parents(".hp-sidebar").width()) + 38;
+            sidebarWidth =
+                parseInt($(this).parents(".hp-sidebar").width()) + 38;
 
             $(".hp-sidebar-dropdown-container").remove();
 
@@ -2873,27 +3024,44 @@ $(function () {
                     `
                         <div class="hp-sidebar-dropdown-container position-absolute">
                             <ul>` +
-                    $(this).next(".submenu-children").html() +
-                    `</ul>
+                        $(this).next(".submenu-children").html() +
+                        `</ul>
                         </div>
                         `
                 );
 
-                if ($(this).offset().top + $(".hp-sidebar-dropdown-container").height() > $(window).height()) {
+                if (
+                    $(this).offset().top +
+                        $(".hp-sidebar-dropdown-container").height() >
+                    $(window).height()
+                ) {
                     $(".hp-sidebar-dropdown-container > ul").css({
-                        maxHeight: "calc(100vh - " + ($(window).height() - $(this).offset().top) + "px)",
+                        maxHeight:
+                            "calc(100vh - " +
+                            ($(window).height() - $(this).offset().top) +
+                            "px)",
                     });
 
                     $(".hp-sidebar-dropdown-container").css(
-                        "top", $(this).offset().top - $(".hp-sidebar-dropdown-container").height() + 50 + "px"
+                        "top",
+                        $(this).offset().top -
+                            $(".hp-sidebar-dropdown-container").height() +
+                            50 +
+                            "px"
                     );
                     if (position === "right") {
                         $(".hp-sidebar-dropdown-container").css(
-                            position, (sidebarWidth - 38) + "px"
+                            position,
+                            sidebarWidth - 38 + "px"
                         );
                     } else {
                         $(".hp-sidebar-dropdown-container").css(
-                            position, "calc(" + $(this).offset().left + "px + " + sidebarWidth + "px)"
+                            position,
+                            "calc(" +
+                                $(this).offset().left +
+                                "px + " +
+                                sidebarWidth +
+                                "px)"
                         );
                     }
                 } else {
@@ -2902,15 +3070,22 @@ $(function () {
                     });
 
                     $(".hp-sidebar-dropdown-container").css(
-                        "top", $(this).offset().top + "px"
+                        "top",
+                        $(this).offset().top + "px"
                     );
                     if (position === "right") {
                         $(".hp-sidebar-dropdown-container").css(
-                            position, (sidebarWidth - 38) + "px"
+                            position,
+                            sidebarWidth - 38 + "px"
                         );
                     } else {
                         $(".hp-sidebar-dropdown-container").css(
-                            position, "calc(" + $(this).offset().left + "px + " + sidebarWidth + "px)"
+                            position,
+                            "calc(" +
+                                $(this).offset().left +
+                                "px + " +
+                                sidebarWidth +
+                                "px)"
                         );
                     }
                 }
@@ -2918,66 +3093,151 @@ $(function () {
                 //--
 
                 let levelNumber;
-                $(".hp-sidebar-dropdown-container li a").mouseenter(function () {
-                    if ($(this).next(".submenu-children").length) {
-                        $(this).css("pointer-events", "none");
+                $(".hp-sidebar-dropdown-container li a").mouseenter(
+                    function () {
+                        if ($(this).next(".submenu-children").length) {
+                            $(this).css("pointer-events", "none");
 
-                        levelNumber = $(this)
-                            .next(".collapse")
-                            .find(".submenu-children")
-                            .data("level");
+                            levelNumber = $(this)
+                                .next(".collapse")
+                                .find(".submenu-children")
+                                .data("level");
 
-                        $("body").append(
-                            `
+                            $("body").append(
+                                `
                                 <div class="hp-sidebar-dropdown-container position-absolute" data-level="` +
-                            levelNumber +
-                            `">
+                                    levelNumber +
+                                    `">
                                     <ul>` +
-                            $(this).next(".submenu-children").html() +
-                            `</ul>
+                                    $(this).next(".submenu-children").html() +
+                                    `</ul>
                                  </div>
                                 `
-                        );
-
-                        if ($(this).offset().top + $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").height() > $(window).height()) {
-                            $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "] > ul").css({
-                                maxHeight: "calc(100vh - " + ($(window).height() - $(this).offset().top) + "px)",
-                            });
-
-                            $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css(
-                                "top", $(this).offset().top - $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").height() + 50 + "px"
                             );
 
-                            if (position === "right") {
-                                $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css(
-                                    position, "calc(" + ($(this).width() + sidebarWidth - 38 + 27) + "px)"
+                            if (
+                                $(this).offset().top +
+                                    $(
+                                        ".hp-sidebar-dropdown-container[data-level=" +
+                                            levelNumber +
+                                            "]"
+                                    ).height() >
+                                $(window).height()
+                            ) {
+                                $(
+                                    ".hp-sidebar-dropdown-container[data-level=" +
+                                        levelNumber +
+                                        "] > ul"
+                                ).css({
+                                    maxHeight:
+                                        "calc(100vh - " +
+                                        ($(window).height() -
+                                            $(this).offset().top) +
+                                        "px)",
+                                });
+
+                                $(
+                                    ".hp-sidebar-dropdown-container[data-level=" +
+                                        levelNumber +
+                                        "]"
+                                ).css(
+                                    "top",
+                                    $(this).offset().top -
+                                        $(
+                                            ".hp-sidebar-dropdown-container[data-level=" +
+                                                levelNumber +
+                                                "]"
+                                        ).height() +
+                                        50 +
+                                        "px"
                                 );
+
+                                if (position === "right") {
+                                    $(
+                                        ".hp-sidebar-dropdown-container[data-level=" +
+                                            levelNumber +
+                                            "]"
+                                    ).css(
+                                        position,
+                                        "calc(" +
+                                            ($(this).width() +
+                                                sidebarWidth -
+                                                38 +
+                                                27) +
+                                            "px)"
+                                    );
+                                } else {
+                                    $(
+                                        ".hp-sidebar-dropdown-container[data-level=" +
+                                            levelNumber +
+                                            "]"
+                                    ).css(
+                                        position,
+                                        "calc(" +
+                                            $(this).offset().left +
+                                            "px + " +
+                                            (sidebarWidth - 37) *
+                                                parseInt(levelNumber) +
+                                            "px)"
+                                    );
+                                }
                             } else {
-                                $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css(
-                                    position, "calc(" + $(this).offset().left + "px + " + (sidebarWidth - 37) * parseInt(levelNumber) + "px)"
-                                );
+                                $(
+                                    ".hp-sidebar-dropdown-container[data-level=" +
+                                        levelNumber +
+                                        "] > ul"
+                                ).css({
+                                    maxHeight: "none",
+                                });
+
+                                $(
+                                    ".hp-sidebar-dropdown-container[data-level=" +
+                                        levelNumber +
+                                        "]"
+                                ).css("top", $(this).offset().top + "px");
+                                if (position === "right") {
+                                    $(
+                                        ".hp-sidebar-dropdown-container[data-level=" +
+                                            levelNumber +
+                                            "]"
+                                    ).css(
+                                        position,
+                                        "calc(" +
+                                            ($(this).width() +
+                                                sidebarWidth -
+                                                38 +
+                                                27) +
+                                            "px)"
+                                    );
+                                } else {
+                                    $(
+                                        ".hp-sidebar-dropdown-container[data-level=" +
+                                            levelNumber +
+                                            "]"
+                                    ).css(
+                                        position,
+                                        "calc(" +
+                                            $(this).offset().left +
+                                            "px + " +
+                                            (sidebarWidth - 37) *
+                                                parseInt(levelNumber) +
+                                            "px)"
+                                    );
+                                }
                             }
                         } else {
-                            $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "] > ul").css({
-                                maxHeight: "none",
-                            });
-
-                            $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css("top", $(this).offset().top + "px");
-                            if (position === "right") {
-                                $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css(
-                                    position, "calc(" + ($(this).width() + sidebarWidth - 38 + 27) + "px)"
-                                );
-                            } else {
-                                $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").css(
-                                    position, "calc(" + $(this).offset().left + "px + " + (sidebarWidth - 37) * parseInt(levelNumber) + "px)"
-                                );
-                            }
+                            $(".hp-sidebar-dropdown-container li a").css(
+                                "pointer-events",
+                                "all"
+                            );
+                            $(
+                                ".hp-sidebar-dropdown-container[data-level=" +
+                                    levelNumber +
+                                    "]"
+                            ).remove();
                         }
-                    } else {
-                        $(".hp-sidebar-dropdown-container li a").css("pointer-events", "all");
-                        $(".hp-sidebar-dropdown-container[data-level=" + levelNumber + "]").remove();
                     }
-                });
+                );
             }
         } else {
             $(".hp-sidebar-dropdown-container").remove();
@@ -2995,10 +3255,13 @@ $(function () {
             !dropdownContainer.has(event.target).length
         ) {
             $(".hp-sidebar-dropdown-container").remove();
-            $(".hp-sidebar-dropdown-container li a").css("pointer-events", "all");
+            $(".hp-sidebar-dropdown-container li a").css(
+                "pointer-events",
+                "all"
+            );
         }
     });
-})
+});
 
 // Avatar Component
 $(function () {
@@ -3008,64 +3271,89 @@ $(function () {
 
         if (maxValue) {
             if ($(this).children("div").length > maxValue) {
-                $(this).find(".avatar-item-max-count").removeClass("d-none")
+                $(this).find(".avatar-item-max-count").removeClass("d-none");
             }
 
-            $(this).children("div").each(function (index) {
-                if (!$(this).hasClass("avatar-item-max-count")) {
-                    if ((index + 1) > maxValue) {
-                        $(this).parent().find(".avatar-group-dropdown-container").append($(this))
+            $(this)
+                .children("div")
+                .each(function (index) {
+                    if (!$(this).hasClass("avatar-item-max-count")) {
+                        if (index + 1 > maxValue) {
+                            $(this)
+                                .parent()
+                                .find(".avatar-group-dropdown-container")
+                                .append($(this));
+                        }
                     }
-                }
-            });
+                });
 
-            $(this).find(".avatar-item-max-count > span").text("+" + ($(this).parent().find(".avatar-group-dropdown-container > div").length))
+            $(this)
+                .find(".avatar-item-max-count > span")
+                .text(
+                    "+" +
+                        $(this)
+                            .parent()
+                            .find(".avatar-group-dropdown-container > div")
+                            .length
+                );
         }
     });
-})
+});
 
 // Carousel
-new bootstrap.Carousel()
+new bootstrap.Carousel();
 
 // Input Number Component
 $(".input-number .input-number-input").focusin(function () {
-    $(this).parent().parent().addClass("input-number-focused")
+    $(this).parent().parent().addClass("input-number-focused");
 });
 
 $(".input-number .input-number-input").focusout(function () {
-    $(this).parent().parent().removeClass("input-number-focused")
+    $(this).parent().parent().removeClass("input-number-focused");
 });
 
 $(".input-number .input-number-input").keyup(function () {
-    let inputNumberUp = $(this).parents(".input-number").find(".input-number-handler-up"),
-        inputNumberDown = $(this).parents(".input-number").find(" .input-number-handler-down");
+    let inputNumberUp = $(this)
+            .parents(".input-number")
+            .find(".input-number-handler-up"),
+        inputNumberDown = $(this)
+            .parents(".input-number")
+            .find(" .input-number-handler-down");
 
     if (Number($(this).val()) >= $(this).attr("max")) {
-        $(this).val($(this).attr("max"))
+        $(this).val($(this).attr("max"));
 
-        inputNumberUp.addClass("input-number-handler-up-disabled")
-        inputNumberDown.removeClass("input-number-handler-down-disabled")
+        inputNumberUp.addClass("input-number-handler-up-disabled");
+        inputNumberDown.removeClass("input-number-handler-down-disabled");
     } else {
-        inputNumberDown.removeClass("input-number-handler-down-disabled")
-        inputNumberUp.removeClass("input-number-handler-up-disabled")
+        inputNumberDown.removeClass("input-number-handler-down-disabled");
+        inputNumberUp.removeClass("input-number-handler-up-disabled");
     }
 
     if ($(this).val() !== "") {
         if (Number($(this).val()) <= $(this).attr("min")) {
-            $(this).val($(this).attr("min"))
+            $(this).val($(this).attr("min"));
 
-            inputNumberDown.addClass("input-number-handler-down-disabled")
-            inputNumberUp.removeClass("input-number-handler-up-disabled")
+            inputNumberDown.addClass("input-number-handler-down-disabled");
+            inputNumberUp.removeClass("input-number-handler-up-disabled");
         }
     }
 });
 
 $(".input-number .input-number-handler").click(function () {
-    let inputNumberInput = $(this).parents(".input-number").find(".input-number-input"),
-        inputNumberUp = $(this).parents(".input-number").find(".input-number-handler-up"),
-        inputNumberDown = $(this).parents(".input-number").find(".input-number-handler-down"),
+    let inputNumberInput = $(this)
+            .parents(".input-number")
+            .find(".input-number-input"),
+        inputNumberUp = $(this)
+            .parents(".input-number")
+            .find(".input-number-handler-up"),
+        inputNumberDown = $(this)
+            .parents(".input-number")
+            .find(".input-number-handler-down"),
         inputNumberValue = Number(inputNumberInput.val()),
-        inputNumberStep = Number(inputNumberInput.attr("step")) ? Number(inputNumberInput.attr("step")) : 1,
+        inputNumberStep = Number(inputNumberInput.attr("step"))
+            ? Number(inputNumberInput.attr("step"))
+            : 1,
         inputNumberMin = Number(inputNumberInput.attr("min")),
         inputNumberMax = Number(inputNumberInput.attr("max"));
 
@@ -3073,11 +3361,13 @@ $(".input-number .input-number-handler").click(function () {
         if ($(this).hasClass("input-number-handler-up")) {
             if (inputNumberValue < inputNumberMax) {
                 inputNumberValue += inputNumberStep;
-                inputNumberDown.removeClass("input-number-handler-down-disabled")
+                inputNumberDown.removeClass(
+                    "input-number-handler-down-disabled"
+                );
             }
 
             if (inputNumberValue === inputNumberMax) {
-                inputNumberUp.addClass("input-number-handler-up-disabled")
+                inputNumberUp.addClass("input-number-handler-up-disabled");
             }
         }
     }
@@ -3086,36 +3376,36 @@ $(".input-number .input-number-handler").click(function () {
         if ($(this).hasClass("input-number-handler-down")) {
             if (inputNumberValue > inputNumberMin) {
                 inputNumberValue -= inputNumberStep;
-                inputNumberUp.removeClass("input-number-handler-up-disabled")
+                inputNumberUp.removeClass("input-number-handler-up-disabled");
             }
 
             if (inputNumberValue === inputNumberMin) {
-                inputNumberDown.addClass("input-number-handler-down-disabled")
+                inputNumberDown.addClass("input-number-handler-down-disabled");
             }
         }
     }
 
-    inputNumberInput.val(inputNumberValue)
+    inputNumberInput.val(inputNumberValue);
 });
 
 // Modal Component
-var varyingModal = document.getElementById('varyingModal')
+var varyingModal = document.getElementById("varyingModal");
 if (varyingModal) {
-    varyingModal.addEventListener('show.bs.modal', function (event) {
+    varyingModal.addEventListener("show.bs.modal", function (event) {
         // Button that triggered the modal
-        var button = event.relatedTarget
+        var button = event.relatedTarget;
         // Extract info from data-bs-* attributes
-        var recipient = button.getAttribute('data-bs-whatever')
+        var recipient = button.getAttribute("data-bs-whatever");
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
         // Update the modal's content.
-        var modalTitle = varyingModal.querySelector('.modal-title')
-        var modalBodyInput = varyingModal.querySelector('.modal-body input')
+        var modalTitle = varyingModal.querySelector(".modal-title");
+        var modalBodyInput = varyingModal.querySelector(".modal-body input");
 
-        modalTitle.textContent = 'New message to ' + recipient
-        modalBodyInput.value = recipient
-    })
+        modalTitle.textContent = "New message to " + recipient;
+        modalBodyInput.value = recipient;
+    });
 }
 
 // Notification
@@ -3136,10 +3426,12 @@ $(".toast-btn").click(function () {
 });
 
 // Popover
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="popover"]')
+);
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-})
+    return new bootstrap.Popover(popoverTriggerEl);
+});
 
 // Area Chart
 let optionsAreaChart = {
@@ -3147,22 +3439,22 @@ let optionsAreaChart = {
         {
             name: "Visit",
             data: [
-                10877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 30457,
-                28459, 29840,
+                10877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                30457, 28459, 29840,
             ],
         },
         {
             name: "Click",
             data: [
-                8753, 21313, 24623, 28935, 27345, 23465, 27813, 29125, 26256, 24356,
-                20233, 24570,
+                8753, 21313, 24623, 28935, 27345, 23465, 27813, 29125, 26256,
+                24356, 20233, 24570,
             ],
         },
         {
             name: "Sales",
             data: [
-                6000, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                16233, 14570,
+                6000, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 16233, 14570,
             ],
         },
     ],
@@ -3262,7 +3554,10 @@ let optionsAreaChart = {
 };
 
 if (document.querySelector("#area-chart")) {
-    let chart = new ApexCharts(document.querySelector("#area-chart"), optionsAreaChart);
+    let chart = new ApexCharts(
+        document.querySelector("#area-chart"),
+        optionsAreaChart
+    );
     chart.render();
 }
 
@@ -3360,7 +3655,10 @@ let optionsBarChart = {
 
 if (document.querySelector("#bar-chart")) {
     setTimeout(() => {
-        let chart = new ApexCharts(document.querySelector("#bar-chart"), optionsBarChart);
+        let chart = new ApexCharts(
+            document.querySelector("#bar-chart"),
+            optionsBarChart
+        );
         chart.render();
     }, 300);
 }
@@ -3558,7 +3856,10 @@ let optionsCandlestickChart = {
 };
 
 if (document.querySelector("#candlestick-chart")) {
-    let chart = new ApexCharts(document.querySelector("#candlestick-chart"), optionsCandlestickChart);
+    let chart = new ApexCharts(
+        document.querySelector("#candlestick-chart"),
+        optionsCandlestickChart
+    );
     chart.render();
 }
 
@@ -3568,15 +3869,15 @@ let optionsColumnChart = {
         {
             name: "Earning",
             data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 39457,
-                22459, 39840,
+                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                39457, 22459, 39840,
             ],
         },
         {
             name: "Expense",
             data: [
-                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                12233, 14570,
+                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 12233, 14570,
             ],
         },
     ],
@@ -3682,7 +3983,10 @@ let optionsColumnChart = {
 };
 
 if (document.querySelector("#column-chart")) {
-    let chart = new ApexCharts(document.querySelector("#column-chart"), optionsColumnChart);
+    let chart = new ApexCharts(
+        document.querySelector("#column-chart"),
+        optionsColumnChart
+    );
     chart.render();
 }
 
@@ -3727,9 +4031,12 @@ let optionsDonutChart = {
                         fontSize: "16px",
                         label: "Total",
                         formatter: function (w) {
-                            return `$ ${w.globals.seriesTotals.reduce((a, b) => {
-                                return a + b;
-                            }, 0)}`;
+                            return `$ ${w.globals.seriesTotals.reduce(
+                                (a, b) => {
+                                    return a + b;
+                                },
+                                0
+                            )}`;
                         },
                     },
                 },
@@ -3753,7 +4060,10 @@ let optionsDonutChart = {
 };
 
 if (document.querySelector("#donut-chart")) {
-    let chart = new ApexCharts(document.querySelector("#donut-chart"), optionsDonutChart);
+    let chart = new ApexCharts(
+        document.querySelector("#donut-chart"),
+        optionsDonutChart
+    );
     chart.render();
 }
 
@@ -3764,7 +4074,8 @@ function generateData(count, yrange) {
     while (i < count) {
         const x = `w${(i + 1).toString()}`;
         const y =
-            Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            Math.floor(Math.random() * (yrange.max - yrange.min + 1)) +
+            yrange.min;
 
         series.push({
             x,
@@ -3920,7 +4231,10 @@ let optionsHeatmapChart = {
 };
 
 if (document.querySelector("#heatmap-chart")) {
-    let chart = new ApexCharts(document.querySelector("#heatmap-chart"), optionsHeatmapChart);
+    let chart = new ApexCharts(
+        document.querySelector("#heatmap-chart"),
+        optionsHeatmapChart
+    );
     chart.render();
 }
 
@@ -3930,15 +4244,15 @@ let optionsLineChart = {
         {
             name: "Ads",
             data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783, 39457,
-                22459, 39840,
+                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+                39457, 22459, 39840,
             ],
         },
         {
             name: "Organic",
             data: [
-                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256, 20356,
-                12233, 14570,
+                12010, 11313, 14623, 18935, 17345, 13465, 17813, 19125, 16256,
+                20356, 12233, 14570,
             ],
         },
     ],
@@ -4034,7 +4348,10 @@ let optionsLineChart = {
 };
 
 if (document.querySelector("#line-chart")) {
-    let chart = new ApexCharts(document.querySelector("#line-chart"), optionsLineChart);
+    let chart = new ApexCharts(
+        document.querySelector("#line-chart"),
+        optionsLineChart
+    );
     chart.render();
 }
 
@@ -4117,7 +4434,10 @@ let optionsRadarChart = {
 };
 
 if (document.querySelector("#radar-chart")) {
-    let chart = new ApexCharts(document.querySelector("#radar-chart"), optionsRadarChart);
+    let chart = new ApexCharts(
+        document.querySelector("#radar-chart"),
+        optionsRadarChart
+    );
     chart.render();
 }
 
@@ -4193,7 +4513,10 @@ let optionsRadialbarChart = {
 };
 
 if (document.querySelector("#radialbar-chart")) {
-    let chart = new ApexCharts(document.querySelector("#radialbar-chart"), optionsRadialbarChart);
+    let chart = new ApexCharts(
+        document.querySelector("#radialbar-chart"),
+        optionsRadialbarChart
+    );
     chart.render();
 }
 
@@ -4386,7 +4709,10 @@ let optionsScatterChart = {
 };
 
 if (document.querySelector("#scatter-chart")) {
-    let chart = new ApexCharts(document.querySelector("#scatter-chart"), optionsScatterChart);
+    let chart = new ApexCharts(
+        document.querySelector("#scatter-chart"),
+        optionsScatterChart
+    );
     chart.render();
 }
 
@@ -4477,146 +4803,149 @@ let optionsEcommerceEarningDonutCard = {
 };
 
 if (document.querySelector("#earnings-donut-card")) {
-    let chart = new ApexCharts(document.querySelector("#earnings-donut-card"), optionsEcommerceEarningDonutCard);
+    let chart = new ApexCharts(
+        document.querySelector("#earnings-donut-card"),
+        optionsEcommerceEarningDonutCard
+    );
     chart.render();
 }
 
 // Dashboard Analytics
-let optionsAnalyticsBalanceChart = {
-    series: [
-        {
-            name: "Balance",
-            data: [
-                28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
-                39457, 22459, 39840,
-            ],
-        },
-    ],
-    fill: {
-        opacity: 1,
-        colors: [
-            document.body.classList.contains("dark") ? "#ffffff" : "#2D3436"
-        ],
-    },
-    chart: {
-        fontFamily: "Manrope, sans-serif",
-        type: "bar",
-        height: "250",
-        toolbar: {
-            show: false,
-        },
-        zoom: {
-            enabled: false,
-        },
-    },
-    labels: {
-        style: {
-            fontSize: "14px",
-        },
-    },
-    dataLabels: {
-        enabled: false,
-    },
-    grid: {
-        borderColor: "#B2BEC3",
-        opacity: 1,
-    },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            borderRadius: 2,
-            columnWidth: "60%",
-            colors: {
-                backgroundBarColors: ["#B2BEC3"],
-                backgroundBarOpacity: 0.2,
-            },
-        },
-    },
-    stroke: {
-        show: true,
-        width: 4,
-        colors: ["transparent"],
-    },
-    xaxis: {
-        axisTicks: {
-            show: false,
-            borderType: "solid",
-            height: 6,
-            offsetX: 0,
-            offsetY: 0,
-        },
-        tickPlacement: "between",
-        labels: {
-            style: {
-                colors: [
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                    "#B2BEC3",
-                ],
-                fontSize: "12px",
-            },
-        },
-        categories: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-        ],
-    },
-    legend: {
-        horizontalAlign: "right",
-        offsetX: 40,
-        position: "top",
-        markers: {
-            radius: 12,
-        },
-    },
-    yaxis: {
-        labels: {
-            style: {
-                colors: ["#636E72"],
-                fontSize: "14px",
-            },
-            formatter: (value) => {
-                return value == "0" ? value / 1000 : value / 1000 + "K";
-            },
-        },
-        min: 0,
-        max: 60000,
-        tickAmount: 4,
-    }
-};
+// let optionsAnalyticsBalanceChart = {
+//     series: [
+//         {
+//             name: "Balance",
+//             data: [
+//                 28877, 29334, 33233, 36439, 32675, 32333, 33457, 38345, 36783,
+//                 39457, 22459, 39840,
+//             ],
+//         },
+//     ],
+//     fill: {
+//         opacity: 1,
+//         colors: [
+//             document.body.classList.contains("dark") ? "#ffffff" : "#2D3436"
+//         ],
+//     },
+//     chart: {
+//         fontFamily: "Manrope, sans-serif",
+//         type: "bar",
+//         height: "250",
+//         toolbar: {
+//             show: false,
+//         },
+//         zoom: {
+//             enabled: false,
+//         },
+//     },
+//     labels: {
+//         style: {
+//             fontSize: "14px",
+//         },
+//     },
+//     dataLabels: {
+//         enabled: false,
+//     },
+//     grid: {
+//         borderColor: "#B2BEC3",
+//         opacity: 1,
+//     },
+//     plotOptions: {
+//         bar: {
+//             horizontal: false,
+//             borderRadius: 2,
+//             columnWidth: "60%",
+//             colors: {
+//                 backgroundBarColors: ["#B2BEC3"],
+//                 backgroundBarOpacity: 0.2,
+//             },
+//         },
+//     },
+//     stroke: {
+//         show: true,
+//         width: 4,
+//         colors: ["transparent"],
+//     },
+//     xaxis: {
+//         axisTicks: {
+//             show: false,
+//             borderType: "solid",
+//             height: 6,
+//             offsetX: 0,
+//             offsetY: 0,
+//         },
+//         tickPlacement: "between",
+//         labels: {
+//             style: {
+//                 colors: [
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                     "#B2BEC3",
+//                 ],
+//                 fontSize: "12px",
+//             },
+//         },
+//         categories: [
+//             "Jan",
+//             "Feb",
+//             "Mar",
+//             "Apr",
+//             "May",
+//             "Jun",
+//             "Jul",
+//             "Aug",
+//             "Sep",
+//             "Oct",
+//             "Nov",
+//             "Dec",
+//         ],
+//     },
+//     legend: {
+//         horizontalAlign: "right",
+//         offsetX: 40,
+//         position: "top",
+//         markers: {
+//             radius: 12,
+//         },
+//     },
+//     yaxis: {
+//         labels: {
+//             style: {
+//                 colors: ["#636E72"],
+//                 fontSize: "14px",
+//             },
+//             formatter: (value) => {
+//                 return value == "0" ? value / 1000 : value / 1000 + "K";
+//             },
+//         },
+//         min: 0,
+//         max: 60000,
+//         tickAmount: 4,
+//     }
+// };
 
-if (document.querySelector("#dashboard-analytics-balance-chart")) {
-    let chart = new ApexCharts(document.querySelector("#dashboard-analytics-balance-chart"), optionsAnalyticsBalanceChart);
-    chart.render();
-}
+// if (document.querySelector("#dashboard-analytics-balance-chart")) {
+//     let chart = new ApexCharts(document.querySelector("#dashboard-analytics-balance-chart"), optionsAnalyticsBalanceChart);
+//     chart.render();
+// }
 
 // Ecommerce Detail Other Slider
 setTimeout(() => {
-    new Swiper('.hp-ecommerce-app-detail-other-slider .swiper', {
+    new Swiper(".hp-ecommerce-app-detail-other-slider .swiper", {
         slidesPerView: 2,
         spaceBetween: 24,
         navigation: {
-            nextEl: '.hp-ecommerce-app-detail-other-slider .btn-next',
-            prevEl: '.hp-ecommerce-app-detail-other-slider .btn-prev',
+            nextEl: ".hp-ecommerce-app-detail-other-slider .btn-next",
+            prevEl: ".hp-ecommerce-app-detail-other-slider .btn-prev",
         },
         breakpoints: {
             1200: {
@@ -4625,17 +4954,20 @@ setTimeout(() => {
             768: {
                 slidesPerView: 3,
             },
-        }
+        },
     });
 }, 500);
 
 // Ecommerce Detail Slider
 setTimeout(() => {
-    let ecommerceAppDetailSlider1 = new Swiper(".hp-ecommerce-app-detail-slider-1", {
-        loop: true,
-        slidesPerView: 1,
-        watchSlidesProgress: true,
-    });
+    let ecommerceAppDetailSlider1 = new Swiper(
+        ".hp-ecommerce-app-detail-slider-1",
+        {
+            loop: true,
+            slidesPerView: 1,
+            watchSlidesProgress: true,
+        }
+    );
 
     new Swiper(".hp-ecommerce-app-detail-slider-2", {
         slidesPerView: 3,
@@ -4646,57 +4978,74 @@ setTimeout(() => {
         breakpoints: {
             768: {
                 slidesPerView: 4,
-            }
-        }
+            },
+        },
     });
 }, 500);
 
 // Auth V2
 if ($(".hp-authentication-page-register").length) {
-    $(".hp-authentication-page-register *[data-button-step]").click(function () {
-        let buttonItem = $(this);
+    $(".hp-authentication-page-register *[data-button-step]").click(
+        function () {
+            let buttonItem = $(this);
 
-        if (buttonItem.attr("data-button-step") === "register-step-1") {
-            $(this).addClass("d-none")
-            $(".hp-authentication-page-register *[data-button-step='register-step-2']").removeClass("d-none")
+            if (buttonItem.attr("data-button-step") === "register-step-1") {
+                $(this).addClass("d-none");
+                $(
+                    ".hp-authentication-page-register *[data-button-step='register-step-2']"
+                ).removeClass("d-none");
 
-            $(".hp-authentication-page-register *[data-step]").each(function () {
-                if ("register-step-1" === $(this).attr("data-step")) {
-                    $(this).removeClass("d-none")
-                }
-            });
+                $(".hp-authentication-page-register *[data-step]").each(
+                    function () {
+                        if ("register-step-1" === $(this).attr("data-step")) {
+                            $(this).removeClass("d-none");
+                        }
+                    }
+                );
+            }
+
+            if (buttonItem.attr("data-button-step") === "register-step-2") {
+                $(this).addClass("d-none");
+                $(
+                    ".hp-authentication-page-register *[data-button-step='register-step-3']"
+                ).removeClass("d-none");
+
+                $(".hp-authentication-page-register *[data-step]").each(
+                    function () {
+                        if ("register-step-2" === $(this).attr("data-step")) {
+                            $(this).removeClass("d-none");
+                        }
+                    }
+                );
+            }
+
+            if (buttonItem.attr("data-button-step") === "register-step-3") {
+                $(this).addClass("d-none");
+                $(
+                    ".hp-authentication-page-register *[data-button-step='register-step-4']"
+                ).removeClass("d-none");
+
+                $(".hp-authentication-page-register *[data-step]").each(
+                    function () {
+                        if ("register-step-3" === $(this).attr("data-step")) {
+                            $(this).removeClass("d-none");
+                        }
+                    }
+                );
+            }
         }
-       
-        if (buttonItem.attr("data-button-step") === "register-step-2") {
-            $(this).addClass("d-none")
-            $(".hp-authentication-page-register *[data-button-step='register-step-3']").removeClass("d-none")
-
-            $(".hp-authentication-page-register *[data-step]").each(function () {
-                if ("register-step-2" === $(this).attr("data-step")) {
-                    $(this).removeClass("d-none")
-                }
-            });
-        }
-       
-        if (buttonItem.attr("data-button-step") === "register-step-3") {
-            $(this).addClass("d-none")
-            $(".hp-authentication-page-register *[data-button-step='register-step-4']").removeClass("d-none")
-
-            $(".hp-authentication-page-register *[data-step]").each(function () {
-                if ("register-step-3" === $(this).attr("data-step")) {
-                    $(this).removeClass("d-none")
-                }
-            });
-        }
-    });
+    );
 } else {
     $(".hp-authentication-page *[data-button-step]").click(function () {
         let buttonItem = $(this);
 
         $(".hp-authentication-page *[data-step]").each(function () {
-            if (buttonItem.attr("data-button-step") === $(this).attr("data-step")) {
-                $(this).removeClass("d-none")
-                buttonItem.addClass("d-none")
+            if (
+                buttonItem.attr("data-button-step") ===
+                $(this).attr("data-step")
+            ) {
+                $(this).removeClass("d-none");
+                buttonItem.addClass("d-none");
             }
         });
     });
@@ -4704,13 +5053,13 @@ if ($(".hp-authentication-page-register").length) {
 
 // Dashboard Ecommerce Products Slide
 setTimeout(() => {
-    new Swiper('.best-selling-product-slide .swiper', {
+    new Swiper(".best-selling-product-slide .swiper", {
         slidesPerView: 1,
         spaceBetween: 32,
         speed: 800,
         navigation: {
-            nextEl: '.best-selling-product-slide .slide-btn-next',
-            prevEl: '.best-selling-product-slide .slide-btn-prev',
+            nextEl: ".best-selling-product-slide .slide-btn-next",
+            prevEl: ".best-selling-product-slide .slide-btn-prev",
         },
         breakpoints: {
             992: {
@@ -4719,13 +5068,13 @@ setTimeout(() => {
             768: {
                 slidesPerView: 2,
             },
-        }
+        },
     });
 }, 500);
 
 $(function () {
     // Slide
-    new Swiper('.hp-landing-features-slide', {
+    new Swiper(".hp-landing-features-slide", {
         slidesPerView: 1,
         spaceBetween: 32,
         centeredSlides: true,
@@ -4742,22 +5091,28 @@ $(function () {
             768: {
                 slidesPerView: 2,
             },
-        }
+        },
     });
 
     // Pricing
     $(".hp-landing-pricing .form-switch input").change(function (e) {
-        $(this).parent().next("span").toggleClass("text-primary text-black-100 hp-text-color-dark-0")
-        $(this).parent().prev("span").toggleClass("text-primary text-black-100 hp-text-color-dark-0")
+        $(this)
+            .parent()
+            .next("span")
+            .toggleClass("text-primary text-black-100 hp-text-color-dark-0");
+        $(this)
+            .parent()
+            .prev("span")
+            .toggleClass("text-primary text-black-100 hp-text-color-dark-0");
 
-        $(".monthly-text").toggleClass("d-none")
-        $(".annually-text").toggleClass("d-none")
-    })
-})
+        $(".monthly-text").toggleClass("d-none");
+        $(".annually-text").toggleClass("d-none");
+    });
+});
 // Components Page Menu
 setTimeout(() => {
-    new Swiper('.hp-components-menu .swiper', {
-        slidesPerView: 'auto',
+    new Swiper(".hp-components-menu .swiper", {
+        slidesPerView: "auto",
         speed: 800,
     });
 }, 500);
@@ -4768,17 +5123,17 @@ $(function () {
             $(".hp-pricing-billed-yearly-text").addClass("active");
             $(".hp-pricing-billed-monthly-text").removeClass("active");
 
-            $(".hp-pricing-billed-active").removeClass("d-none")
-            $(".hp-pricing-billed-inactive").addClass("d-none")
+            $(".hp-pricing-billed-active").removeClass("d-none");
+            $(".hp-pricing-billed-inactive").addClass("d-none");
         } else {
             $(".hp-pricing-billed-monthly-text").addClass("active");
             $(".hp-pricing-billed-yearly-text").removeClass("active");
 
-            $(".hp-pricing-billed-active").addClass("d-none")
-            $(".hp-pricing-billed-inactive").removeClass("d-none")
+            $(".hp-pricing-billed-active").addClass("d-none");
+            $(".hp-pricing-billed-inactive").removeClass("d-none");
         }
-    })
-})
+    });
+});
 
 const defaultButtons = `
 <button class="btn btn-primary">Primary</button>
@@ -5122,7 +5477,7 @@ const iconOnlyButtons = `
 <button class="btn btn-icon-only rounded-circle btn-success">
     <i class="ri-arrow-right-s-line remix-icon"></i>
 </button>
-                
+
 --
 
 <button class="btn btn-icon-only rounded-circle btn-warning">
@@ -5155,54 +5510,54 @@ const iconOnlyButtons = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "buttons") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "default-buttons") {
-            $(this).text(defaultButtons)
+            $(this).text(defaultButtons);
         }
 
         if ($(this).data("code") === "large-buttons") {
-            $(this).text(largeButtons)
+            $(this).text(largeButtons);
         }
 
         if ($(this).data("code") === "small-buttons") {
-            $(this).text(smallButtons)
+            $(this).text(smallButtons);
         }
 
         if ($(this).data("code") === "text-buttons") {
-            $(this).text(textButtons)
+            $(this).text(textButtons);
         }
 
         if ($(this).data("code") === "link-buttons") {
-            $(this).text(linkButtons)
+            $(this).text(linkButtons);
         }
 
         if ($(this).data("code") === "dashed-buttons") {
-            $(this).text(dashedButtons)
+            $(this).text(dashedButtons);
         }
 
         if ($(this).data("code") === "disabled-buttons") {
-            $(this).text(disabledButtons)
+            $(this).text(disabledButtons);
         }
 
         if ($(this).data("code") === "outline-buttons") {
-            $(this).text(outlineButtons)
+            $(this).text(outlineButtons);
         }
 
         if ($(this).data("code") === "ghost-buttons") {
-            $(this).text(ghostButtons)
+            $(this).text(ghostButtons);
         }
 
         if ($(this).data("code") === "gradient-buttons") {
-            $(this).text(gradientButtons)
+            $(this).text(gradientButtons);
         }
 
         if ($(this).data("code") === "icon-buttons") {
-            $(this).text(iconButtons)
+            $(this).text(iconButtons);
         }
 
         if ($(this).data("code") === "icon-only-buttons") {
-            $(this).text(iconOnlyButtons)
+            $(this).text(iconOnlyButtons);
         }
     }
 });
@@ -5432,21 +5787,21 @@ const openData = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "accordion") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "accordion") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "example") {
-      $(this).text(basicAccordion)
-    }
+        if ($(this).data("code") === "example") {
+            $(this).text(basicAccordion);
+        }
 
-    if ($(this).data("code") === "flush") {
-      $(this).text(flushAccordion)
-    }
+        if ($(this).data("code") === "flush") {
+            $(this).text(flushAccordion);
+        }
 
-    if ($(this).data("code") === "open") {
-      $(this).text(openData)
+        if ($(this).data("code") === "open") {
+            $(this).text(openData);
+        }
     }
-  }
 });
 
 const examplesAlert = `
@@ -5602,33 +5957,33 @@ const dismissing = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "alert") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "alert") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "examples") {
-      $(this).text(examplesAlert)
-    }
+        if ($(this).data("code") === "examples") {
+            $(this).text(examplesAlert);
+        }
 
-    if ($(this).data("code") === "link-color") {
-      $(this).text(linkColor)
-    }
+        if ($(this).data("code") === "link-color") {
+            $(this).text(linkColor);
+        }
 
-    if ($(this).data("code") === "additional") {
-      $(this).text(additional)
-    }
+        if ($(this).data("code") === "additional") {
+            $(this).text(additional);
+        }
 
-    if ($(this).data("code") === "icons") {
-      $(this).text(iconsAlert)
-    }
+        if ($(this).data("code") === "icons") {
+            $(this).text(iconsAlert);
+        }
 
-    if ($(this).data("code") === "icons2") {
-      $(this).text(icons2Alert)
-    }
+        if ($(this).data("code") === "icons2") {
+            $(this).text(icons2Alert);
+        }
 
-    if ($(this).data("code") === "dismissing") {
-      $(this).text(dismissing)
+        if ($(this).data("code") === "dismissing") {
+            $(this).text(dismissing);
+        }
     }
-  }
 });
 
 const basicAvatar = `
@@ -5654,15 +6009,15 @@ const basicAvatar = `
   <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-primary-4 hp-text-color-primary-1 rounded" style="width: 64px; height: 64px;">
       <i class="iconly-Curved-User" style="font-size: 46px; letter-spacing: -2px;"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
-  
+
   <div class="avatar-item d-flex align-items-center justify-content-center avatar-sm hp-bg-primary-4 hp-text-color-primary-1 rounded">
       <i class="iconly-Curved-User"></i>
   </div>
@@ -5677,7 +6032,7 @@ const avatarGroup = `
     </div>
 
     <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-danger-4 hp-text-color-danger-1 rounded-circle"> K </div>
-   
+
     <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="User">
         <div class="avatar-item d-flex align-items-center justify-content-center rounded-circle">
             <i class="iconly-Curved-User" style="font-size: 22px; letter-spacing: -2px;"></i>
@@ -5697,7 +6052,7 @@ const avatarGroup = `
     </div>
 
     <div class="avatar-item d-flex align-items-center justify-content-center hp-bg-warning-4 hp-text-color-warning-1 rounded-circle"> K </div>
-    
+
     <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="User">
         <div class="avatar-item d-flex align-items-center justify-content-center rounded-circle">
             <i class="iconly-Curved-User"></i>
@@ -5723,9 +6078,9 @@ const avatarGroup = `
     <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-primary-4 hp-text-color-primary-1 rounded-circle">
         <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="User">
     </div>
-   
+
     <div class="avatar-item d-flex align-items-center justify-content-center avatar-lg hp-bg-warning-4 hp-text-color-warning-1 rounded-circle"> K </div>
-   
+
     <div class="avatar-item avatar-lg avatar-item-max-count hp-bg-danger-4 hp-text-color-danger-1">
         <span>+2</span>
 
@@ -5788,25 +6143,25 @@ const avatarBadge = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "avatar") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "avatar") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicAvatar)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicAvatar);
+        }
 
-    if ($(this).data("code") === "avatar-group") {
-      $(this).text(avatarGroup)
-    }
+        if ($(this).data("code") === "avatar-group") {
+            $(this).text(avatarGroup);
+        }
 
-    if ($(this).data("code") === "avatar-type") {
-      $(this).text(avatarType)
-    }
+        if ($(this).data("code") === "avatar-type") {
+            $(this).text(avatarType);
+        }
 
-    if ($(this).data("code") === "avatar-badge") {
-      $(this).text(avatarBadge)
+        if ($(this).data("code") === "avatar-badge") {
+            $(this).text(avatarBadge);
+        }
     }
-  }
 });
 
 const headings = `
@@ -5872,26 +6227,26 @@ const pillBadges = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "badge") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "headings") {
-            $(this).text(headings)
+            $(this).text(headings);
         }
 
         if ($(this).data("code") === "buttons") {
-            $(this).text(buttons)
+            $(this).text(buttons);
         }
 
         if ($(this).data("code") === "positioned") {
-            $(this).text(positioned)
+            $(this).text(positioned);
         }
 
         if ($(this).data("code") === "background") {
-            $(this).text(background)
+            $(this).text(background);
         }
 
         if ($(this).data("code") === "pill-badges") {
-            $(this).text(pillBadges)
+            $(this).text(pillBadges);
         }
     }
 });
@@ -5947,17 +6302,17 @@ const divider = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "breadcrumb") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "breadcrumb") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicBreadcrumb)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicBreadcrumb);
+        }
 
-    if ($(this).data("code") === "divider") {
-      $(this).text(divider)
+        if ($(this).data("code") === "divider") {
+            $(this).text(divider);
+        }
     }
-  }
 });
 
 const exampleCard = `
@@ -6466,69 +6821,69 @@ const cardGrid = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "card") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "card") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "example") {
-      $(this).text(exampleCard)
-    }
+        if ($(this).data("code") === "example") {
+            $(this).text(exampleCard);
+        }
 
-    if ($(this).data("code") === "body") {
-      $(this).text(bodyCard)
-    }
+        if ($(this).data("code") === "body") {
+            $(this).text(bodyCard);
+        }
 
-    if ($(this).data("code") === "titles-text-links") {
-      $(this).text(titlesTextLinks)
-    }
+        if ($(this).data("code") === "titles-text-links") {
+            $(this).text(titlesTextLinks);
+        }
 
-    if ($(this).data("code") === "images") {
-      $(this).text(imagesCard)
-    }
+        if ($(this).data("code") === "images") {
+            $(this).text(imagesCard);
+        }
 
-    if ($(this).data("code") === "list-groups") {
-      $(this).text(listGroups)
-    }
+        if ($(this).data("code") === "list-groups") {
+            $(this).text(listGroups);
+        }
 
-    if ($(this).data("code") === "kitchen-sink") {
-      $(this).text(kitchenSink)
-    }
+        if ($(this).data("code") === "kitchen-sink") {
+            $(this).text(kitchenSink);
+        }
 
-    if ($(this).data("code") === "header-and-footer") {
-      $(this).text(headerAndFooter)
-    }
+        if ($(this).data("code") === "header-and-footer") {
+            $(this).text(headerAndFooter);
+        }
 
-    if ($(this).data("code") === "navigation") {
-      $(this).text(navigation)
-    }
+        if ($(this).data("code") === "navigation") {
+            $(this).text(navigation);
+        }
 
-    if ($(this).data("code") === "image-caps") {
-      $(this).text(imageCaps)
-    }
+        if ($(this).data("code") === "image-caps") {
+            $(this).text(imageCaps);
+        }
 
-    if ($(this).data("code") === "image-overlay") {
-      $(this).text(imageOverlay)
-    }
+        if ($(this).data("code") === "image-overlay") {
+            $(this).text(imageOverlay);
+        }
 
-    if ($(this).data("code") === "horizontal") {
-      $(this).text(horizontalCard)
-    }
+        if ($(this).data("code") === "horizontal") {
+            $(this).text(horizontalCard);
+        }
 
-    if ($(this).data("code") === "background-color") {
-      $(this).text(backgroundColor)
-    }
+        if ($(this).data("code") === "background-color") {
+            $(this).text(backgroundColor);
+        }
 
-    if ($(this).data("code") === "card-border") {
-      $(this).text(cardBorder)
-    }
+        if ($(this).data("code") === "card-border") {
+            $(this).text(cardBorder);
+        }
 
-    if ($(this).data("code") === "card-groups") {
-      $(this).text(cardGroups)
-    }
+        if ($(this).data("code") === "card-groups") {
+            $(this).text(cardGroups);
+        }
 
-    if ($(this).data("code") === "card-grid") {
-      $(this).text(cardGrid)
+        if ($(this).data("code") === "card-grid") {
+            $(this).text(cardGrid);
+        }
     }
-  }
 });
 
 const basicCarousel = `
@@ -6537,11 +6892,11 @@ const basicCarousel = `
     <div class="carousel-item active">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
@@ -6728,21 +7083,21 @@ const touch = `
     <div class="carousel-item active">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
-    
+
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
     </div>
   </div>
-  
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  
+
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
@@ -6755,34 +7110,34 @@ const touch = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "carousel") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "basic") {
-            $(this).text(basicCarousel)
+            $(this).text(basicCarousel);
         }
-        
+
         if ($(this).data("code") === "controls") {
-            $(this).text(controls)
+            $(this).text(controls);
         }
 
         if ($(this).data("code") === "indicators") {
-            $(this).text(indicators)
+            $(this).text(indicators);
         }
 
         if ($(this).data("code") === "captions") {
-            $(this).text(captionsCarousel)
+            $(this).text(captionsCarousel);
         }
-        
+
         if ($(this).data("code") === "crossfade") {
-            $(this).text(crossfade)
+            $(this).text(crossfade);
         }
-        
+
         if ($(this).data("code") === "interval") {
-            $(this).text(interval)
+            $(this).text(interval);
         }
 
         if ($(this).data("code") === "touch") {
-            $(this).text(touch)
+            $(this).text(touch);
         }
     }
 });
@@ -6823,17 +7178,17 @@ const disabledCheckbox = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "checkbox") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "checkbox") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicCheckbox)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicCheckbox);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledCheckbox)
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledCheckbox);
+        }
     }
-  }
 });
 
 const exampleCollapse = `
@@ -6889,17 +7244,17 @@ const multipleCollapse = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "collapse") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "collapse") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "example") {
-      $(this).text(exampleCollapse)
-    }
+        if ($(this).data("code") === "example") {
+            $(this).text(exampleCollapse);
+        }
 
-    if ($(this).data("code") === "multiple") {
-      $(this).text(multipleCollapse)
+        if ($(this).data("code") === "multiple") {
+            $(this).text(multipleCollapse);
+        }
     }
-  }
 });
 
 const demoDrawer = `
@@ -7026,21 +7381,21 @@ const backdrop = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "drawer") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "drawer") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "demo") {
-      $(this).text(demoDrawer)
-    }
+        if ($(this).data("code") === "demo") {
+            $(this).text(demoDrawer);
+        }
 
-    if ($(this).data("code") === "placement") {
-      $(this).text(placement)
-    }
+        if ($(this).data("code") === "placement") {
+            $(this).text(placement);
+        }
 
-    if ($(this).data("code") === "backdrop") {
-      $(this).text(backdrop)
+        if ($(this).data("code") === "backdrop") {
+            $(this).text(backdrop);
+        }
     }
-  }
 });
 
 const singleButton = `
@@ -7076,11 +7431,11 @@ const singleButton = `
   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
@@ -7088,7 +7443,7 @@ const singleButton = `
   <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
-  
+
   <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
@@ -7110,7 +7465,7 @@ const splitButton = `
   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
-  
+
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="javascript:;">Action</a></li>
     <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
@@ -7425,49 +7780,49 @@ const autoClose = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "dropdown") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "dropdown") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "single-button") {
-      $(this).text(singleButton)
-    }
+        if ($(this).data("code") === "single-button") {
+            $(this).text(singleButton);
+        }
 
-    if ($(this).data("code") === "split-button") {
-      $(this).text(splitButton)
-    }
+        if ($(this).data("code") === "split-button") {
+            $(this).text(splitButton);
+        }
 
-    if ($(this).data("code") === "sizing") {
-      $(this).text(sizing)
-    }
+        if ($(this).data("code") === "sizing") {
+            $(this).text(sizing);
+        }
 
-    if ($(this).data("code") === "dropup") {
-      $(this).text(dropup)
+        if ($(this).data("code") === "dropup") {
+            $(this).text(dropup);
+        }
+
+        if ($(this).data("code") === "dropright") {
+            $(this).text(dropright);
+        }
+
+        if ($(this).data("code") === "dropleft") {
+            $(this).text(dropleft);
+        }
+
+        if ($(this).data("code") === "responsive") {
+            $(this).text(responsiveDropdown);
+        }
+
+        if ($(this).data("code") === "alignment") {
+            $(this).text(alignment);
+        }
+
+        if ($(this).data("code") === "dropdown-options") {
+            $(this).text(dropdownOptions);
+        }
+
+        if ($(this).data("code") === "auto-close") {
+            $(this).text(autoClose);
+        }
     }
-    
-    if ($(this).data("code") === "dropright") {
-      $(this).text(dropright)
-    }
-    
-    if ($(this).data("code") === "dropleft") {
-      $(this).text(dropleft)
-    }
-    
-    if ($(this).data("code") === "responsive") {
-      $(this).text(responsiveDropdown)
-    }
-    
-    if ($(this).data("code") === "alignment") {
-      $(this).text(alignment)
-    }
-    
-    if ($(this).data("code") === "dropdown-options") {
-      $(this).text(dropdownOptions)
-    }
-    
-    if ($(this).data("code") === "auto-close") {
-      $(this).text(autoClose)
-    }
-  }
 });
 
 const basicForm = `
@@ -7524,17 +7879,17 @@ const disabledForm = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "form") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "form") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicForm)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicForm);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledForm)
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledForm);
+        }
     }
-  }
 });
 
 const basicInputNumber = `
@@ -7669,21 +8024,21 @@ const sizesInputNumber = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "input-number") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "input-number") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicInputNumber)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicInputNumber);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledInputNumber)
-    }
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledInputNumber);
+        }
 
-    if ($(this).data("code") === "sizes") {
-      $(this).text(sizesInputNumber)
+        if ($(this).data("code") === "sizes") {
+            $(this).text(sizesInputNumber);
+        }
     }
-  }
 });
 
 const basicInput = `
@@ -7957,45 +8312,45 @@ const fileInput = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "input") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "input") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicInput)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicInput);
+        }
 
-    if ($(this).data("code") === "sizing") {
-      $(this).text(sizingInput)
-    }
+        if ($(this).data("code") === "sizing") {
+            $(this).text(sizingInput);
+        }
 
-    if ($(this).data("code") === "checkboxes-radios") {
-      $(this).text(checkboxesRadios)
-    }
+        if ($(this).data("code") === "checkboxes-radios") {
+            $(this).text(checkboxesRadios);
+        }
 
-    if ($(this).data("code") === "multiple") {
-      $(this).text(multipleInput)
-    }
+        if ($(this).data("code") === "multiple") {
+            $(this).text(multipleInput);
+        }
 
-    if ($(this).data("code") === "button-addons") {
-      $(this).text(buttonAddons)
-    }
+        if ($(this).data("code") === "button-addons") {
+            $(this).text(buttonAddons);
+        }
 
-    if ($(this).data("code") === "button-dropdowns") {
-      $(this).text(buttonDropdowns)
-    }
+        if ($(this).data("code") === "button-dropdowns") {
+            $(this).text(buttonDropdowns);
+        }
 
-    if ($(this).data("code") === "segmented") {
-      $(this).text(segmented)
-    }
+        if ($(this).data("code") === "segmented") {
+            $(this).text(segmented);
+        }
 
-    if ($(this).data("code") === "select") {
-      $(this).text(selectInput)
-    }
+        if ($(this).data("code") === "select") {
+            $(this).text(selectInput);
+        }
 
-    if ($(this).data("code") === "file-input") {
-      $(this).text(fileInput)
+        if ($(this).data("code") === "file-input") {
+            $(this).text(fileInput);
+        }
     }
-  }
 });
 
 const basicList = `
@@ -8198,7 +8553,7 @@ const customContent = `
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small>And some small print.</small>
   </a>
-  
+
   <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
@@ -8207,7 +8562,7 @@ const customContent = `
     <p class="mb-1">Some placeholder content in a paragraph.</p>
     <small class="text-muted">And some muted small print.</small>
   </a>
-  
+
   <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
@@ -8253,22 +8608,22 @@ const checkboxesAndRadios = `
     <input class="form-check-input me-1" type="checkbox" value="">
     First checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Second checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Third checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Fourth checkbox
   </label>
-  
+
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
     Fifth checkbox
@@ -8280,53 +8635,53 @@ const checkboxesAndRadios = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "list") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "list") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicList)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicList);
+        }
 
-    if ($(this).data("code") === "active-items") {
-      $(this).text(activeItems)
-    }
+        if ($(this).data("code") === "active-items") {
+            $(this).text(activeItems);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledList)
-    }
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledList);
+        }
 
-    if ($(this).data("code") === "links-and-buttons") {
-      $(this).text(linksAndButtons)
-    }
+        if ($(this).data("code") === "links-and-buttons") {
+            $(this).text(linksAndButtons);
+        }
 
-    if ($(this).data("code") === "flush") {
-      $(this).text(flushList)
-    }
+        if ($(this).data("code") === "flush") {
+            $(this).text(flushList);
+        }
 
-    if ($(this).data("code") === "numbered") {
-      $(this).text(numbered)
-    }
+        if ($(this).data("code") === "numbered") {
+            $(this).text(numbered);
+        }
 
-    if ($(this).data("code") === "horizontal") {
-      $(this).text(horizontalList)
-    }
+        if ($(this).data("code") === "horizontal") {
+            $(this).text(horizontalList);
+        }
 
-    if ($(this).data("code") === "contextual") {
-      $(this).text(contextual)
-    }
+        if ($(this).data("code") === "contextual") {
+            $(this).text(contextual);
+        }
 
-    if ($(this).data("code") === "badges") {
-      $(this).text(badges)
-    }
+        if ($(this).data("code") === "badges") {
+            $(this).text(badges);
+        }
 
-    if ($(this).data("code") === "custom-content") {
-      $(this).text(customContent)
-    }
+        if ($(this).data("code") === "custom-content") {
+            $(this).text(customContent);
+        }
 
-    if ($(this).data("code") === "checkboxes-and-radios") {
-      $(this).text(checkboxesAndRadios)
+        if ($(this).data("code") === "checkboxes-and-radios") {
+            $(this).text(checkboxesAndRadios);
+        }
     }
-  }
 });
 
 const supportedContent = `
@@ -8776,38 +9131,38 @@ const externalContent = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "menu") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "supported-content") {
-            $(this).text(supportedContent)
+            $(this).text(supportedContent);
         }
 
         if ($(this).data("code") === "text-menu") {
-            $(this).text(textMenu)
+            $(this).text(textMenu);
         }
 
         if ($(this).data("code") === "image-menu") {
-            $(this).text(imageMenu)
+            $(this).text(imageMenu);
         }
 
         if ($(this).data("code") === "nav-menu") {
-            $(this).text(navMenu)
+            $(this).text(navMenu);
         }
 
         if ($(this).data("code") === "color-scheme-menu") {
-            $(this).text(colorSchemeMenu)
+            $(this).text(colorSchemeMenu);
         }
 
         if ($(this).data("code") === "scrolling-menu") {
-            $(this).text(scrollingMenu)
+            $(this).text(scrollingMenu);
         }
 
         if ($(this).data("code") === "toggler") {
-            $(this).text(toggler)
+            $(this).text(toggler);
         }
 
         if ($(this).data("code") === "external-content") {
-            $(this).text(externalContent)
+            $(this).text(externalContent);
         }
     }
 });
@@ -9383,53 +9738,53 @@ const fullscreen = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "modal") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "modal") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "demo") {
-      $(this).text(demoModal)
-    }
+        if ($(this).data("code") === "demo") {
+            $(this).text(demoModal);
+        }
 
-    if ($(this).data("code") === "static") {
-      $(this).text(staticModal)
-    }
+        if ($(this).data("code") === "static") {
+            $(this).text(staticModal);
+        }
 
-    if ($(this).data("code") === "scrolling") {
-      $(this).text(scrolling)
-    }
+        if ($(this).data("code") === "scrolling") {
+            $(this).text(scrolling);
+        }
 
-    if ($(this).data("code") === "vertically") {
-      $(this).text(vertically)
-    }
+        if ($(this).data("code") === "vertically") {
+            $(this).text(vertically);
+        }
 
-    if ($(this).data("code") === "tooltip-popovers") {
-      $(this).text(tooltipPopovers)
-    }
+        if ($(this).data("code") === "tooltip-popovers") {
+            $(this).text(tooltipPopovers);
+        }
 
-    if ($(this).data("code") === "grid") {
-      $(this).text(grid)
-    }
+        if ($(this).data("code") === "grid") {
+            $(this).text(grid);
+        }
 
-    if ($(this).data("code") === "varying") {
-      $(this).text(varying)
-    }
+        if ($(this).data("code") === "varying") {
+            $(this).text(varying);
+        }
 
-    if ($(this).data("code") === "between") {
-      $(this).text(between)
-    }
+        if ($(this).data("code") === "between") {
+            $(this).text(between);
+        }
 
-    if ($(this).data("code") === "remove") {
-      $(this).text(remove)
-    }
+        if ($(this).data("code") === "remove") {
+            $(this).text(remove);
+        }
 
-    if ($(this).data("code") === "sizes") {
-      $(this).text(sizes)
-    }
+        if ($(this).data("code") === "sizes") {
+            $(this).text(sizes);
+        }
 
-    if ($(this).data("code") === "fullscreen") {
-      $(this).text(fullscreen)
+        if ($(this).data("code") === "fullscreen") {
+            $(this).text(fullscreen);
+        }
     }
-  }
 });
 
 const basicNotification = `
@@ -9526,25 +9881,25 @@ const stacking = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "notification") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "notification") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicNotification)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicNotification);
+        }
 
-    if ($(this).data("code") === "live") {
-      $(this).text(live)
-    }
+        if ($(this).data("code") === "live") {
+            $(this).text(live);
+        }
 
-    if ($(this).data("code") === "translucent") {
-      $(this).text(translucent)
-    }
+        if ($(this).data("code") === "translucent") {
+            $(this).text(translucent);
+        }
 
-    if ($(this).data("code") === "stacking") {
-      $(this).text(stacking)
+        if ($(this).data("code") === "stacking") {
+            $(this).text(stacking);
+        }
     }
-  }
 });
 
 const basicPagination = `
@@ -9627,22 +9982,22 @@ const sizingPagination = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "pagination") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "basic") {
-            $(this).text(basicPagination)
+            $(this).text(basicPagination);
         }
 
         if ($(this).data("code") === "icons") {
-            $(this).text(iconsPagination)
+            $(this).text(iconsPagination);
         }
 
         if ($(this).data("code") === "disabled-active") {
-            $(this).text(disabledActive)
+            $(this).text(disabledActive);
         }
 
         if ($(this).data("code") === "sizing") {
-            $(this).text(sizingPagination)
+            $(this).text(sizingPagination);
         }
     }
 });
@@ -9690,25 +10045,25 @@ const disabledPopover = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "popover") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "popover") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicPopover)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicPopover);
+        }
 
-    if ($(this).data("code") === "directions") {
-      $(this).text(directions)
-    }
+        if ($(this).data("code") === "directions") {
+            $(this).text(directions);
+        }
 
-    if ($(this).data("code") === "dismiss") {
-      $(this).text(dismiss)
-    }
+        if ($(this).data("code") === "dismiss") {
+            $(this).text(dismiss);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledPopover)
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledPopover);
+        }
     }
-  }
 });
 
 const basicProgress = `
@@ -9814,34 +10169,34 @@ const animatedStriped = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "progress") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "basic") {
-            $(this).text(basicProgress)
+            $(this).text(basicProgress);
         }
 
         if ($(this).data("code") === "labels") {
-            $(this).text(labels)
+            $(this).text(labels);
         }
 
         if ($(this).data("code") === "height") {
-            $(this).text(height)
+            $(this).text(height);
         }
 
         if ($(this).data("code") === "backgrounds") {
-            $(this).text(backgrounds)
+            $(this).text(backgrounds);
         }
 
         if ($(this).data("code") === "multiplebars") {
-            $(this).text(multiplebars)
+            $(this).text(multiplebars);
         }
 
         if ($(this).data("code") === "striped") {
-            $(this).text(striped)
+            $(this).text(striped);
         }
 
         if ($(this).data("code") === "animated-striped") {
-            $(this).text(animatedStriped)
+            $(this).text(animatedStriped);
         }
     }
 });
@@ -9899,18 +10254,18 @@ const toggleButtons = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "radio") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "basic") {
-            $(this).text(basicRadio)
+            $(this).text(basicRadio);
         }
 
         if ($(this).data("code") === "disabled") {
-            $(this).text(disabledRadio)
+            $(this).text(disabledRadio);
         }
 
         if ($(this).data("code") === "toggle-buttons") {
-            $(this).text(toggleButtons)
+            $(this).text(toggleButtons);
         }
     }
 });
@@ -9969,21 +10324,21 @@ const disabledSelect = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "select") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "select") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicSelect)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicSelect);
+        }
 
-    if ($(this).data("code") === "sizing") {
-      $(this).text(sizingSelect)
-    }
+        if ($(this).data("code") === "sizing") {
+            $(this).text(sizingSelect);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledSelect)
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledSelect);
+        }
     }
-  }
 });
 
 const basicSlider = `
@@ -10009,25 +10364,25 @@ const step = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "slider") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "slider") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicSlider)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicSlider);
+        }
 
-    if ($(this).data("code") === "disabled") {
-      $(this).text(disabledSlider)
-    }
+        if ($(this).data("code") === "disabled") {
+            $(this).text(disabledSlider);
+        }
 
-    if ($(this).data("code") === "min-and-max") {
-      $(this).text(minAndMax)
-    }
+        if ($(this).data("code") === "min-and-max") {
+            $(this).text(minAndMax);
+        }
 
-    if ($(this).data("code") === "step") {
-      $(this).text(step)
+        if ($(this).data("code") === "step") {
+            $(this).text(step);
+        }
     }
-  }
 });
 
 const borderSpinner = `
@@ -10185,38 +10540,38 @@ const buttonSpinner = `
 
 $("pre code").each(function () {
     if ($(this).data("component") === "spinner") {
-        $(this).text($.trim($(this).data("code")))
+        $(this).text($.trim($(this).data("code")));
 
         if ($(this).data("code") === "border-spinner") {
-            $(this).text(borderSpinner)
+            $(this).text(borderSpinner);
         }
 
         if ($(this).data("code") === "colors") {
-            $(this).text(colors)
+            $(this).text(colors);
         }
 
         if ($(this).data("code") === "growing-spinner") {
-            $(this).text(growingSpinner)
+            $(this).text(growingSpinner);
         }
 
         if ($(this).data("code") === "flex") {
-            $(this).text(flex)
+            $(this).text(flex);
         }
 
         if ($(this).data("code") === "float") {
-            $(this).text(float)
+            $(this).text(float);
         }
 
         if ($(this).data("code") === "text-align") {
-            $(this).text(textAlign)
+            $(this).text(textAlign);
         }
 
         if ($(this).data("code") === "size") {
-            $(this).text(size)
+            $(this).text(size);
         }
-        
+
         if ($(this).data("code") === "button-spinner") {
-            $(this).text(buttonSpinner)
+            $(this).text(buttonSpinner);
         }
     }
 });
@@ -10255,13 +10610,13 @@ const basicSwitch = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "switch") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "switch") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicSwitch)
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicSwitch);
+        }
     }
-  }
 });
 
 const overview = `
@@ -10511,57 +10866,57 @@ const breakpoint = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "table") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "table") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "overview") {
-      $(this).text(overview)
-    }
+        if ($(this).data("code") === "overview") {
+            $(this).text(overview);
+        }
 
-    if ($(this).data("code") === "variants") {
-      $(this).text(variants)
-    }
+        if ($(this).data("code") === "variants") {
+            $(this).text(variants);
+        }
 
-    if ($(this).data("code") === "striped-rows") {
-      $(this).text(stripedRows)
-    }
+        if ($(this).data("code") === "striped-rows") {
+            $(this).text(stripedRows);
+        }
 
-    if ($(this).data("code") === "active-tables") {
-      $(this).text(activeTables)
-    }
+        if ($(this).data("code") === "active-tables") {
+            $(this).text(activeTables);
+        }
 
-    if ($(this).data("code") === "bordered") {
-      $(this).text(bordered)
-    }
+        if ($(this).data("code") === "bordered") {
+            $(this).text(bordered);
+        }
 
-    if ($(this).data("code") === "borderless") {
-      $(this).text(borderless)
-    }
+        if ($(this).data("code") === "borderless") {
+            $(this).text(borderless);
+        }
 
-    if ($(this).data("code") === "small-tables") {
-      $(this).text(smallTables)
-    }
+        if ($(this).data("code") === "small-tables") {
+            $(this).text(smallTables);
+        }
 
-    if ($(this).data("code") === "nesting") {
-      $(this).text(nesting)
-    }
+        if ($(this).data("code") === "nesting") {
+            $(this).text(nesting);
+        }
 
-    if ($(this).data("code") === "foot") {
-      $(this).text(foot)
-    }
+        if ($(this).data("code") === "foot") {
+            $(this).text(foot);
+        }
 
-    if ($(this).data("code") === "captions") {
-      $(this).text(captionsTable)
-    }
+        if ($(this).data("code") === "captions") {
+            $(this).text(captionsTable);
+        }
 
-    if ($(this).data("code") === "responsive") {
-      $(this).text(responsiveTable)
-    }
+        if ($(this).data("code") === "responsive") {
+            $(this).text(responsiveTable);
+        }
 
-    if ($(this).data("code") === "breakpoint") {
-      $(this).text(breakpoint)
+        if ($(this).data("code") === "breakpoint") {
+            $(this).text(breakpoint);
+        }
     }
-  }
 });
 
 const basicTabs = `
@@ -10667,17 +11022,17 @@ const vertical = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "tabs") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "tabs") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicTabs)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicTabs);
+        }
 
-    if ($(this).data("code") === "vertical") {
-      $(this).text(vertical)
+        if ($(this).data("code") === "vertical") {
+            $(this).text(vertical);
+        }
     }
-  }
 });
 
 const basicTooltip = `
@@ -10720,24 +11075,24 @@ const svg = `
 //--
 
 $("pre code").each(function () {
-  if ($(this).data("component") === "tooltip") {
-    $(this).text($.trim($(this).data("code")))
+    if ($(this).data("component") === "tooltip") {
+        $(this).text($.trim($(this).data("code")));
 
-    if ($(this).data("code") === "basic") {
-      $(this).text(basicTooltip)
-    }
+        if ($(this).data("code") === "basic") {
+            $(this).text(basicTooltip);
+        }
 
-    if ($(this).data("code") === "direction") {
-      $(this).text(direction)
-    }
+        if ($(this).data("code") === "direction") {
+            $(this).text(direction);
+        }
 
-    if ($(this).data("code") === "svg") {
-      $(this).text(svg)
+        if ($(this).data("code") === "svg") {
+            $(this).text(svg);
+        }
     }
-  }
 });
 
 // Show Code Btn
 $(".show-code-btn").click(function () {
-    $(this).parent().nextAll(".hljs-container").fadeToggle(300)
-})
+    $(this).parent().nextAll(".hljs-container").fadeToggle(300);
+});

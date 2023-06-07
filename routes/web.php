@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/chart',[App\Http\Controllers\HomeController::class, 'chart'])->name('home.chart');
 \San\Crud\Crud::routes();
