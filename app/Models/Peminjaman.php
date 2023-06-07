@@ -14,4 +14,19 @@ class Peminjaman extends Model
     protected $primaryKey = 'kd_peminjaman';
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function peminjam()
+    {
+        return $this->belongsTo(Peminjam::class,'id_peminjam');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(DetPeminjaman::class,'kd_peminjaman');
+    }
 }

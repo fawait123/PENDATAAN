@@ -25,4 +25,9 @@ class DetAset extends Model
     {
         return $this->belongsTo(AsalAset::class,'kd_asal');
     }
+
+    public function aset()
+    {
+        return $this->belongsTo(Aset::class,'kd_aset');
+    }
 }

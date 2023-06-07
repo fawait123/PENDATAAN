@@ -14,4 +14,14 @@ class DetMutasi extends Model
     protected $primaryKey = 'kd_det_mutasi';
 
     protected $guarded = [];
+
+    public function detaset()
+    {
+        return $this->belongsTo(DetAset::class,'kd_det_aset');
+    }
+
+    public function ruang()
+    {
+        return $this->belongsTo(Ruang::class,'kd_ruang');
+    }
 }
