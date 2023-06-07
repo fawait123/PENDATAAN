@@ -14,4 +14,15 @@ class Penghapusan extends Model
     protected $primaryKey = 'kd_penghapusan';
 
     protected $guarded = [];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(DetPenghapusan::class,'kd_penghapusan');
+    }
 }
