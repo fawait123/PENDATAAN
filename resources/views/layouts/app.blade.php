@@ -51,6 +51,8 @@
     <!-- Pages -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}app-assets/css/pages/dashboard-analytics.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" />
+
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}assets/css/style.css">
 
@@ -1605,9 +1607,12 @@
     <script src="{{ asset('') }}app-assets/js/cards/card-analytic.js"></script>
     <script src="{{ asset('') }}app-assets/js/cards/card-advance.js"></script>
     <script src="{{ asset('') }}app-assets/js/cards/card-statistic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
     <!-- Custom -->
     <script src="{{ asset('') }}assets/js/main.js"></script>
+
+    @stack('customjs')
 </body>
 
 </html>

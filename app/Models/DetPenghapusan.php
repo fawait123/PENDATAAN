@@ -14,4 +14,9 @@ class DetPenghapusan extends Model
     protected $primaryKey = 'kd_det_penghapusan';
 
     protected $guarded = [];
+
+    public function detaset()
+    {
+        return $this->belongsTo(DetAset::class,'kd_det_aset');
+    }
 }
