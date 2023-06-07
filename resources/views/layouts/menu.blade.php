@@ -51,7 +51,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('peminjam.index') }}" class="{{ Request::is('peminjam*') ? 'active' : '' }}">
+                <a href="{{ route('peminjam.index') }}"
+                    class="{{ Request::is('peminjam') || Request::is('peminjam/*') ? 'active' : '' }}">
                     <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
                         title="" data-bs-original-title="E-Commerce" aria-label="User"></div>
 
@@ -112,7 +113,7 @@
 
         <ul>
             <li>
-                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                <a href="{{ route('peminjaman.index') }}" class="{{ Request::is('peminjaman*') ? 'active' : '' }}">
                     <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
                         title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 
@@ -154,7 +155,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                <a href="{{ route('mutasi.index') }}" class="{{ Request::is('mutasi*') ? 'active' : '' }}">
                     <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
                         title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 

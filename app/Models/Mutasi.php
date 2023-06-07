@@ -14,4 +14,14 @@ class Mutasi extends Model
     protected $primaryKey = 'kd_mutasi';
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(DetMutasi::class,'kd_mutasi');
+    }
 }
