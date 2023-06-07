@@ -28,6 +28,10 @@
                             <td>{{ $peminjaman->user->nama_lengkap ?: '(blank)' }}</td>
                         </tr>
                         <tr>
+                            <th scope="row">Aset:</th>
+                            <td>{{ $peminjaman->detail->detaset->aset->nama_aset ?: '(blank)' }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Peminjam:</th>
                             <td>{{ $peminjaman->peminjam->nama ?: '(blank)' }}</td>
                         </tr>

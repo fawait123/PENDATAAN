@@ -127,7 +127,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('home') }}" class="{{ Request::is('home') ? 'active' : '' }}">
+                <a href="{{ route('pengembalian.index') }}"
+                    class="{{ Request::is('pengembalian*') ? 'active' : '' }}">
                     <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right"
                         title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 

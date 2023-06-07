@@ -14,4 +14,9 @@ class DetPeminjaman extends Model
     protected $primaryKey = 'kd_det_peminjaman';
 
     protected $guarded = [];
+
+    public function detaset()
+    {
+        return $this->belongsTo(DetAset::class,'kd_det_aset');
+    }
 }
