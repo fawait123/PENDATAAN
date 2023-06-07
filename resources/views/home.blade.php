@@ -7,29 +7,18 @@
             <div class="col-12">
                 <div class="row g-32">
                     <div class="col-md-4 col-6">
-                        <div
-                            class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer">
+                        <div class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer"
+                            onclick="window.location.href='{{ route('aset.index') }}'">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-center hp-dashboard-feature-card-icon rounded-3 hp-bg-black-20 hp-bg-dark-80"
                                     style="width: 48px; height: 48px;">
-                                    <svg class="hp-text-color-black-bg hp-text-color-dark-0"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path
-                                            d="M18.809 6.25h1.36c-.19-.27-.39-.52-.6-.77l-.76.77ZM18.52 4.42c-.25-.21-.5-.41-.77-.6v1.36l.77-.76ZM19.58 5.481l2.95-2.95c.29-.29.29-.77 0-1.06a.754.754 0 0 0-1.06 0l-2.95 2.95c.38.33.73.69 1.06 1.06ZM17.752 3c0-.41-.34-.75-.75-.75-.4 0-.72.32-.74.71.52.25 1.02.53 1.49.86V3ZM21.752 7c0-.41-.34-.75-.75-.75h-.83c.33.47.62.97.86 1.49.4-.02.72-.34.72-.74ZM12.75 14.75h.3c.39 0 .7-.35.7-.78 0-.54-.15-.62-.49-.74l-.51-.18v1.7Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M21.04 7.74c-.01 0-.02.01-.04.01h-4c-.1 0-.19-.02-.29-.06a.782.782 0 0 1-.41-.41.868.868 0 0 1-.05-.28V3c0-.01.01-.02.01-.04C14.96 2.35 13.52 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-1.52-.35-2.96-.96-4.26Zm-7.29 4.08c.64.22 1.5.69 1.5 2.16 0 1.25-.99 2.28-2.2 2.28h-.3v.25c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-.25h-.08c-1.33 0-2.42-1.12-2.42-2.5 0-.42.34-.76.75-.76s.75.34.75.75c0 .55.41 1 .92 1h.08v-2.22l-1-.35c-.64-.22-1.5-.69-1.5-2.16 0-1.25.99-2.28 2.2-2.28h.3V7.5c0-.41.34-.75.75-.75s.75.34.75.75v.25h.08c1.33 0 2.42 1.12 2.42 2.5 0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-.55-.41-1-.92-1h-.08v2.22l1 .35Z"
-                                            fill="currentColor"></path>
-                                        <path d="M10.25 10.03c0 .54.15.62.49.74l.51.18v-1.7h-.3c-.38 0-.7.35-.7.78Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i class="fa fa-warehouse"></i>
                                 </div>
 
                                 <div class="d-flex mt-12">
                                     <span
                                         class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4">
-                                        Income </span>
+                                        Total Aset </span>
                                     <div>
                                         <svg class="hp-text-color-success-1" xmlns="http://www.w3.org/2000/svg"
                                             width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -41,34 +30,25 @@
                                 </div>
 
                                 <span class="hp-caption mt-4 d-block fw-normal hp-text-color-black-60">
-                                    April 2022 </span>
-                                <span class="d-block mt-12 mb-8 h3"> $13,908 </span>
+                                    {{ $card['asetLastUpdate'] }} </span>
+                                <span class="d-block mt-12 mb-8 h3"> {{ $card['totalAset'] }} </span>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-6">
-                        <div
-                            class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer">
+                        <div class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer"
+                            onclick="window.location.href='{{ route('peminjaman.index') }}'">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-center hp-dashboard-feature-card-icon rounded-3 hp-bg-black-20 hp-bg-dark-80"
                                     style="width: 48px; height: 48px;">
-                                    <svg class="hp-text-color-black-bg hp-text-color-dark-0"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path
-                                            d="M10.25 10.03c0 .54.15.62.49.74l.51.18v-1.7h-.3c-.38 0-.7.35-.7.78ZM12.75 14.75h.3c.39 0 .7-.35.7-.78 0-.54-.15-.62-.49-.74l-.51-.18v1.7Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="m19.58 5.48-2.05 2.05c-.15.15-.34.22-.53.22s-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l2.05-2.05C16.76 2.92 14.49 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-2.49-.92-4.76-2.42-6.52Zm-5.83 6.34c.64.23 1.5.69 1.5 2.16 0 1.25-.99 2.28-2.2 2.28h-.3v.25c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-.25h-.08c-1.33 0-2.42-1.12-2.42-2.5 0-.42.34-.76.75-.76s.75.34.75.75c0 .55.41 1 .92 1h.08v-2.22l-1-.35c-.64-.23-1.5-.69-1.5-2.16 0-1.25.99-2.28 2.2-2.28h.3V7.5c0-.41.34-.75.75-.75s.75.34.75.75v.25h.08c1.33 0 2.42 1.12 2.42 2.5 0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-.55-.41-1-.92-1h-.08v2.22l1 .35ZM22.69 1.71a.782.782 0 0 0-.41-.41.868.868 0 0 0-.28-.05h-4c-.41 0-.75.34-.75.75s.34.75.75.75h2.19l-1.67 1.67c.38.33.73.68 1.06 1.06l1.67-1.67V6c0 .41.34.75.75.75s.75-.34.75-.75V2c0-.1-.02-.19-.06-.29Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i class="fa fa-marker"></i>
                                 </div>
 
                                 <div class="d-flex mt-12">
                                     <span
                                         class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4">
-                                        Expenses </span>
+                                        Total Peminjaman </span>
                                     <div>
                                         <svg class="hp-text-color-danger-1" xmlns="http://www.w3.org/2000/svg"
                                             width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -80,37 +60,31 @@
                                 </div>
 
                                 <span class="hp-caption mt-4 d-block fw-normal hp-text-color-black-60">
-                                    April 2022 </span>
-                                <span class="d-block mt-12 mb-8 h3"> $7,949 </span>
+                                    {{ $card['peminjamanLastUpdate'] }} </span>
+                                <span class="d-block mt-12 mb-8 h3"> {{ $card['totalPeminjaman'] }} </span>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-6">
-                        <div
-                            class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer">
+                        <div class="card hp-dashboard-feature-card hp-border-color-black-0 hp-border-color-dark-80 hp-cursor-pointer"
+                            onclick="window.location.href='{{ route('pengembalian.index') }}'">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-center hp-dashboard-feature-card-icon rounded-3 hp-bg-black-20 hp-bg-dark-80"
                                     style="width: 48px; height: 48px;">
-                                    <svg class="hp-text-color-black-bg hp-text-color-dark-0"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path
-                                            d="m11.94 2.212-2.41 5.61H7.12c-.4 0-.79.03-1.17.11l1-2.4.04-.09.06-.16c.03-.07.05-.13.08-.18 1.16-2.69 2.46-3.53 4.81-2.89ZM18.731 8.09l-.02-.01c-.6-.17-1.21-.26-1.83-.26h-6.26l2.25-5.23.03-.07c.14.05.29.12.44.17l2.21.93c1.23.51 2.09 1.04 2.62 1.68.09.12.17.23.25.36.09.14.16.28.2.43.04.09.07.17.09.26.15.51.16 1.09.02 1.74ZM18.288 9.52c-.45-.13-.92-.2-1.41-.2h-9.76c-.68 0-1.32.13-1.92.39a4.894 4.894 0 0 0-2.96 4.49v1.95c0 .24.02.47.05.71.22 3.18 1.92 4.88 5.1 5.09.23.03.46.05.71.05h7.8c3.7 0 5.65-1.76 5.84-5.26.01-.19.02-.39.02-.59V14.2a4.9 4.9 0 0 0-3.47-4.68Zm-3.79 7.23h-5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h5c.41 0 .75.34.75.75s-.34.75-.75.75Z"
-                                            fill="currentColor"></path>
-                                    </svg>
+                                    <i class="fa fa-book"></i>
                                 </div>
 
                                 <div class="d-flex mt-12">
                                     <span
                                         class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4">
-                                        Balance </span>
+                                        Pengembalian </span>
                                     <div></div>
                                 </div>
 
                                 <span class="hp-caption mt-4 d-block fw-normal hp-text-color-black-60">
-                                    April 2022 </span>
-                                <span class="d-block mt-12 mb-8 h3"> $5,129 </span>
+                                    {{ $card['pengembalianLastUpdate'] }} </span>
+                                <span class="d-block mt-12 mb-8 h3"> {{ $card['totalPengembalian'] }} </span>
                             </div>
                         </div>
                     </div>
@@ -122,13 +96,13 @@
                     <div class="mb-18 col-12">
                         <div class="row align-items-center justify-content-between">
                             <div class="hp-flex-none w-auto col">
-                                <span class="d-block hp-p1-body">Balance</span>
                                 <span class="d-block mt-4 h3 fw-semibold hp-text-color-black-bg hp-text-color-dark-0">
-                                    $12.389 </span>
+                                    Data Aset
+                                </span>
                             </div>
 
                             <div class="hp-flex-none w-auto col">
-                                <span class="hp-p1-body d-block">Past 30 Days</span>
+                                <span class="hp-p1-body d-block">{{ $card['asetLastUpdate'] }}</span>
                             </div>
                         </div>
                     </div>
@@ -156,8 +130,8 @@
                                 d="M370.717 85.179 180.539 10.257l46.817 86.462L99.151 44.63l129.884 138.803L55.517 116.68l60.47 87.899-127.415-32.922"
                                 stroke="url(#a)" stroke-width="20" stroke-linejoin="bevel"></path>
                             <defs>
-                                <linearGradient id="a" x1="151.96" y1="17.382" x2="195.449"
-                                    y2="191.807" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="a" x1="151.96" y1="17.382" x2="195.449" y2="191.807"
+                                    gradientUnits="userSpaceOnUse">
                                     <stop stop-color="#fff"></stop>
                                     <stop offset="0.737" stop-color="#fff" stop-opacity="0">
                                     </stop>
@@ -203,161 +177,176 @@
 
             <div class="col-12">
                 <span class="h3 d-block fw-semibold hp-text-color-black-bg hp-text-color-dark-0 mb-0">
-                    Recent Activities </span>
-                <span class="hp-p1-body d-block mt-4">05 Dec 2021</span>
+                    Penghapusan Aset </span>
+                <span class="hp-p1-body d-block mt-4">{{ date('d M Y') }}</span>
 
                 <div class="row mt-24">
-                    <div
-                        class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
-                        <div class="row align-items-end justify-content-between">
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="hp-flex-none w-auto pe-0 col">
-                                        <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
-                                            style="min-width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/dashboard/zendesk-logo.svg"
-                                                alt="Zendesk">
+                    @foreach ($requestTrash as $item)
+                        <div
+                            class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
+                            <div class="row align-items-end justify-content-between">
+                                <div class="col">
+                                    <div class="row align-items-center">
+                                        <div class="hp-flex-none w-auto pe-0 col">
+                                            <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
+                                                style="min-width: 48px; height: 48px;">
+                                                <img src="{{ asset('') }}app-assets/img/dashboard/zendesk-logo.svg"
+                                                    alt="Zendesk">
+                                            </div>
+                                        </div>
+
+                                        <div class="hp-flex-none w-auto ps-0 col">
+                                            <span
+                                                class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
+                                                {{ $item->user->nama_lengkap }} </span>
+                                            <span class="d-block hp-caption fw-normal hp-text-color-black-60">
+                                                {{ $item->created_at->diffForHumans() }} </span>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="hp-flex-none w-auto ps-0 col">
-                                        <span
-                                            class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
-                                            Zendesk </span>
-                                        <span class="d-block hp-caption fw-normal hp-text-color-black-60">
-                                            05 Dec 2021 </span>
-                                    </div>
+                                <div class="hp-flex-none w-auto col">
+                                    <span class="h5 hp-text-color-black-bg hp-text-color-dark-0">
+                                        {{ $item->detail->detaset->aset->nama_aset ?? '' }}
+                                    </span>
                                 </div>
                             </div>
-
-                            <div class="hp-flex-none w-auto col">
-                                <span class="h5 hp-text-color-black-bg hp-text-color-dark-0"> $ 500.00
-                                </span>
-                            </div>
                         </div>
-                    </div>
-
-                    <div
-                        class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
-                        <div class="row align-items-end justify-content-between">
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="hp-flex-none w-auto pe-0 col">
-                                        <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
-                                            style="min-width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/dashboard/sales-force-logo.svg"
-                                                alt="Sales Force">
-                                        </div>
-                                    </div>
-
-                                    <div class="hp-flex-none w-auto ps-0 col">
-                                        <span
-                                            class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
-                                            Sales Force </span>
-                                        <span class="d-block hp-caption fw-normal hp-text-color-black-60">
-                                            24 Dec 2021 </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hp-flex-none w-auto col">
-                                <span class="h5 hp-text-color-black-bg hp-text-color-dark-0"> $ 337.00
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
-                        <div class="row align-items-end justify-content-between">
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="hp-flex-none w-auto pe-0 col">
-                                        <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
-                                            style="min-width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/dashboard/apple-logo.svg"
-                                                alt="Apple">
-                                        </div>
-                                    </div>
-
-                                    <div class="hp-flex-none w-auto ps-0 col">
-                                        <span
-                                            class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
-                                            Apple </span>
-                                        <span class="d-block hp-caption fw-normal hp-text-color-black-60">
-                                            29 Dec 2021 </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hp-flex-none w-auto col">
-                                <span class="h5 hp-text-color-black-bg hp-text-color-dark-0"> $ 320.67
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
-                        <div class="row align-items-end justify-content-between">
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="hp-flex-none w-auto pe-0 col">
-                                        <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
-                                            style="min-width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/dashboard/google-logo.svg"
-                                                alt="Google Inc">
-                                        </div>
-                                    </div>
-
-                                    <div class="hp-flex-none w-auto ps-0 col">
-                                        <span
-                                            class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
-                                            Google Inc </span>
-                                        <span class="d-block hp-caption fw-normal hp-text-color-black-60">
-                                            29 Dec 2021 </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hp-flex-none w-auto col">
-                                <span class="h5 hp-text-color-black-bg hp-text-color-dark-0"> $ 127.00
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="hp-cursor-pointer hp-transition hp-hover-bg-dark-100 hp-hover-bg-black-10 rounded py-8 mb-16 col-12">
-                        <div class="row align-items-end justify-content-between">
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="hp-flex-none w-auto pe-0 col">
-                                        <div class="me-16 border hp-border-color-black-10 hp-bg-black-0 rounded-3 d-flex align-items-center justify-content-center"
-                                            style="min-width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/dashboard/virgin-logo.svg"
-                                                alt="Virgin Media">
-                                        </div>
-                                    </div>
-
-                                    <div class="hp-flex-none w-auto ps-0 col">
-                                        <span
-                                            class="d-block hp-p1-body fw-medium hp-text-color-black-bg hp-text-color-dark-0">
-                                            Virgin Media </span>
-                                        <span class="d-block hp-caption fw-normal hp-text-color-black-60">
-                                            29 Dec 2021 </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hp-flex-none w-auto col">
-                                <span class="h5 hp-text-color-black-bg hp-text-color-dark-0"> $ 28.00
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('customjs')
+    <script>
+        $(document).ready(function() {
+            let optionsAnalyticsBalanceChart = {
+                series: [{
+                    name: "Aset Masuk",
+                    data: [],
+                }, ],
+                fill: {
+                    opacity: 1,
+                    colors: [
+                        document.body.classList.contains("dark") ? "#ffffff" : "#2D3436"
+                    ],
+                },
+                chart: {
+                    fontFamily: "Manrope, sans-serif",
+                    type: "bar",
+                    height: "250",
+                    toolbar: {
+                        show: false,
+                    },
+                    zoom: {
+                        enabled: false,
+                    },
+                },
+                labels: {
+                    style: {
+                        fontSize: "14px",
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                grid: {
+                    borderColor: "#B2BEC3",
+                    opacity: 1,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        borderRadius: 2,
+                        columnWidth: "60%",
+                        colors: {
+                            backgroundBarColors: ["#B2BEC3"],
+                            backgroundBarOpacity: 0.2,
+                        },
+                    },
+                },
+                stroke: {
+                    show: true,
+                    width: 4,
+                    colors: ["transparent"],
+                },
+                xaxis: {
+                    axisTicks: {
+                        show: false,
+                        borderType: "solid",
+                        height: 6,
+                        offsetX: 0,
+                        offsetY: 0,
+                    },
+                    tickPlacement: "between",
+                    labels: {
+                        style: {
+                            colors: [
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                                "#B2BEC3",
+                            ],
+                            fontSize: "12px",
+                        },
+                    },
+                    categories: [],
+                },
+                legend: {
+                    horizontalAlign: "right",
+                    offsetX: 40,
+                    position: "top",
+                    markers: {
+                        radius: 12,
+                    },
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: ["#636E72"],
+                            fontSize: "14px",
+                        },
+                        // formatter: (value) => {
+                        //     return value == "0" ? value / 1000 : value / 1000 + "K";
+                        // },
+                    },
+                    min: 0,
+                    // max: 60000,
+                    tickAmount: 4,
+                }
+            };
+
+
+
+            $.ajax({
+                url: "{{ route('home.chart') }}",
+                type: "get",
+                responseType: "json",
+                success: function(res) {
+                    let datas = res.map((el) => el.count)
+                    let month = res.map((el) => el.month)
+
+                    optionsAnalyticsBalanceChart.series[0].data = datas
+                    optionsAnalyticsBalanceChart.xaxis.categories = month
+
+                    console.log(optionsAnalyticsBalanceChart)
+
+                    let chart = new ApexCharts(document.querySelector(
+                            "#dashboard-analytics-balance-chart"),
+                        optionsAnalyticsBalanceChart);
+                    chart.render();
+                }
+            });
+        })
+    </script>
+@endpush
