@@ -49,4 +49,23 @@ class HomeController extends Controller
 
         return $datas;
     }
+
+    public function verifikasi(Request $request)
+    {
+        $id = $request->id;
+        $key = $request->key;
+        $dataModel = $request->model;
+        $model = '\App\Models\\'.$dataModel;
+        $model = new $model;
+
+        $data = $model->where($key,$id)->first();
+
+        $value = $data->verifikasi == "Sudah Verifikasi" ? "Belum Verifikasi" : "Sudah Verifikasi";
+
+        $update = $model->where($key,$id)->update([
+            'verifikasi'=>$value
+        ]);
+
+        return $data;
+    }
 }

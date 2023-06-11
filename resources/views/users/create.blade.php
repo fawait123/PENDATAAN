@@ -11,7 +11,7 @@
             </div>
 
             <div class="card-body">
-                <form action="{{ route('user.store', []) }}" method="POST" class="m-0 p-0">
+                <form action="{{ route('user.store', []) }}" method="POST" class="m-0 p-0" enctype="multipart/form-data">
                     <div class="card-body">
                         @csrf
                         <div class="mb-3">
@@ -49,15 +49,25 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto:</label>
                             <input type="file" name="foto" id="foto" class="form-control"
-                                value="{{ @old('foto') }}" required />
+                                value="{{ @old('foto') }}" />
                             @if ($errors->has('foto'))
                                 <div class='error small text-danger'>{{ $errors->first('foto') }}</div>
                             @endif
                         </div>
                         <div class="mb-3">
                             <label for="role" class="form-label">Role:</label>
-                            <input type="text" name="role" id="role" class="form-control"
-                                value="{{ @old('role') }}" required />
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="">pilih</option>
+                                <option value="Bid Sarana Prasarana"
+                                    {{ @old('role') == 'Bid Sarana Prasarana' ? 'selected' : '' }}>Bid Sarana Prasarana
+                                </option>
+                                <option value="Sekretaris" {{ @old('role') == 'Sekretaris' ? 'selected' : '' }}>Sekretaris
+                                </option>
+                                <option value="Kepala Sekolah" {{ @old('role') == 'Kepala Sekolah' ? 'selected' : '' }}>
+                                    Kepala Sekolah</option>
+                                <option value="Admin" {{ @old('role') == 'Admin' ? 'selected' : '' }}>Admin
+                                </option>
+                            </select>
                             @if ($errors->has('role'))
                                 <div class='error small text-danger'>{{ $errors->first('role') }}</div>
                             @endif

@@ -143,7 +143,7 @@
                             <div class="w-auto px-0">
                                 <div class="avatar-item bg-primary-4 d-flex align-items-center justify-content-center rounded-circle"
                                     style="width: 48px; height: 48px;">
-                                    <img src="{{ asset('') }}app-assets/img/memoji/user-avatar-8.png"
+                                    <img src="{{ auth()->user()->foto ? asset('uploads/' . auth()->user()->foto) : asset('app-assets/img/memoji/user-avatar-8.png') }}"
                                         height="100%" class="hp-img-cover">
                                 </div>
                             </div>
@@ -1280,7 +1280,7 @@
                                                 <div class="avatar-item hp-bg-info-4 d-flex"
                                                     style="width: 32px; height: 32px;">
                                                     <img
-                                                        src="{{ asset('') }}app-assets/img/memoji/user-avatar-4.png">
+                                                        src="{{ auth()->user()->foto ? asset('uploads/' . auth()->user()->foto) : asset('app-assets/img/memoji/user-avatar-4.png') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -1305,7 +1305,12 @@
                                                     </div>
 
                                                     <div class="col-12 mt-24">
-                                                        <a class="hp-p1-body fw-medium" href="index.html">Logout</a>
+                                                        <a class="hp-p1-body fw-medium" href="#"
+                                                            onclick="document.getElementById('form-logout').submit()">Logout</a>
+                                                        <form action="{{ route('logout') }}" method="post"
+                                                            id="form-logout">
+                                                            @csrf
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1439,70 +1444,7 @@
                                 </div>
                             </div>
 
-                            <ul>
-                                <li>
-                                    <div class="menu-title">DASHBOARDS</div>
-
-                                    <ul>
-                                        <li>
-                                            <a href="dashboard-analytics.html">
-                                                <div class="tooltip-item in-active" data-bs-toggle="tooltip"
-                                                    data-bs-placement="right" title=""
-                                                    data-bs-original-title="Analytics" aria-label="Analytics"></div>
-
-                                                <span>
-                                                    <span class="submenu-item-icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none">
-                                                            <path
-                                                                d="M8.97 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7h-6c-5 0-7 2-7 7v6c0 5 2 7 7 7Z"
-                                                                stroke="currentColor" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                            </path>
-                                                            <path
-                                                                d="m1.97 12.7 6-.02c.75 0 1.59.57 1.87 1.27l1.14 2.88c.26.65.67.65.93 0l2.29-5.81c.22-.56.63-.58.91-.05l1.04 1.97c.31.59 1.11 1.07 1.77 1.07h4.06"
-                                                                stroke="currentColor" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
-
-                                                    <span>Analytics</span>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="dashboard-ecommerce.html">
-                                                <div class="tooltip-item in-active" data-bs-toggle="tooltip"
-                                                    data-bs-placement="right" title=""
-                                                    data-bs-original-title="E-Commerce" aria-label="E-Commerce">
-                                                </div>
-
-                                                <span>
-                                                    <span class="submenu-item-icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none">
-                                                            <path
-                                                                d="M3 9.11v5.77C3 17 3 17 5 18.35l5.5 3.18c.83.48 2.18.48 3 0l5.5-3.18c2-1.35 2-1.35 2-3.46V9.11C21 7 21 7 19 5.65l-5.5-3.18c-.82-.48-2.17-.48-3 0L5 5.65C3 7 3 7 3 9.11Z"
-                                                                stroke="currentColor" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                            </path>
-                                                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                                                                stroke="currentColor" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
-
-                                                    <span>E-Commerce</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
+                            @include('layouts.menu')
                         </div>
 
                         <div
@@ -1515,17 +1457,16 @@
                                     <div class="w-auto px-0">
                                         <div class="avatar-item bg-primary-4 d-flex align-items-center justify-content-center rounded-circle"
                                             style="width: 48px; height: 48px;">
-                                            <img src="{{ asset('') }}app-assets/img/memoji/user-avatar-8.png"
+                                            <img src="{{ auth()->user()->foto ? asset('uploads/' . auth()->user()->foto) : asset('app-assets/img/memoji/user-avatar-8.png') }}"
                                                 height="100%" class="hp-img-cover">
                                         </div>
                                     </div>
 
                                     <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                                         <span
-                                            class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">Jane
-                                            Doe</span>
+                                            class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{{ auth()->user()->nama_lengkap }}</span>
                                         <a href="profile-information.html"
-                                            class="hp-badge-text fw-normal hp-text-color-dark-30">View Profile</a>
+                                            class="hp-badge-text fw-normal hp-text-color-dark-30">{{ auth()->user()->role }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -1616,9 +1557,30 @@
 
     <script>
         $(document).ready(function() {
+            $(".verifikasi").on('change', function() {
+                let id = $(this).data('id')
+                let model = $(this).data('model')
+                let key = $(this).data('key')
+                let value = $(this).data('value')
+                $.ajax({
+                    url: "{{ route('home.verifikasi') }}",
+                    type: "get",
+                    data: {
+                        id: id,
+                        model: model,
+                        key: key,
+                        value: value
+                    },
+                    success: function(res) {
+                        // console.log(res)
+                        if (res) {
+                            window.location.reload();
+                        }
+                    }
+                })
+            })
             let selector = document.querySelectorAll('span.relative.z-0.inline-flex.shadow-sm.rounded-md')[0]
                 .remove()
-            // console.log(selector)
         })
     </script>
 </body>

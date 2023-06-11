@@ -57,6 +57,10 @@
                             </td>
                         </tr>
                         <tr>
+                            <th scope="row">Verifikasi:</th>
+                            <td>{{ $penghapusan->detail->verifikasi ?: '(blank)' }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Created at</th>
                             <td>{{ Carbon\Carbon::parse($penghapusan->created_at)->format('d/m/Y H:i:s') }}</td>
                         </tr>
