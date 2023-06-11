@@ -44,6 +44,10 @@
                             <td>{{ $mutasi->detail->keterangan ?: '(blank)' }}</td>
                         </tr>
                         <tr>
+                            <th scope="row">Verifikasi:</th>
+                            <td>{{ $mutasi->detail->verifikasi ?: '(blank)' }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Created at</th>
                             <td>{{ Carbon\Carbon::parse($mutasi->created_at)->format('d/m/Y H:i:s') }}</td>
                         </tr>

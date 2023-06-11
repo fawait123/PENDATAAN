@@ -51,16 +51,31 @@ class UserController extends Controller {
      */
     public function store(Request $request, ) {
 
-        $request->validate(["nama_lengkap" => "required", "username" => "required", "email" => "required", "password" => "required", "foto" => "required", "role" => "required"]);
+        $request->validate([
+            "nama_lengkap" => "required",
+            "username" => "required",
+            "email" => "required",
+            "password" => "required",
+            "foto"=>"mimes:png,jpg,jpeg",
+            "role" => "required"
+        ]);
 
         try {
+
+            $fileName = null;
+
+            if($request->hasFile('foto')){
+                $file = $request->file('foto');
+                $fileName = date('YmdHis').$file->getClientOriginalName();
+                $file->move('uploads/',$fileName);
+            }
 
             $user = new User();
             $user->nama_lengkap = $request->nama_lengkap;
             $user->username = $request->username;
             $user->email = $request->email;
             $user->password = $request->password;
-            $user->foto = $request->foto;
+            $user->foto = $fileName;
             $user->role = $request->role;
             $user->save();
 
@@ -102,24 +117,50 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user,) {
-
-        $request->validate(["id_user" => "required", "nama_lengkap" => "required", "username" => "required", "email" => "required", "password" => "required", "foto" => "required", "role" => "required"]);
-
         try {
+            $validation = [
+                "nama_lengkap" => "required",
+                "username" => "required",
+                "email" => "required",
+                "role" => "required"
+            ];
+
+            if($request->hasFile('foto')){
+                array_push($validation,["foto"=>"mimes:png,jpg,jpeg"]);
+            }
+            $request->validate([
+                "nama_lengkap" => "required",
+                "username" => "required",
+                "email" => "required",
+                "role" => "required"
+            ]);
+
+            $fileName = $user->foto;
+            $newPassword = $user->password;
+
+            if($request->hasFile('foto')){
+                $file = $request->file('foto');
+                $fileName = date('YmdHis').$file->getClientOriginalName();
+                $file->move('uploads/',$fileName);
+            }
+
+            if($request->filled('password')){
+                $newPassword = $request->password;
+            }
+
+
             $user->id_user = $request->id_user;
-		$user->nama_lengkap = $request->nama_lengkap;
-		$user->username = $request->username;
-		$user->email = $request->email;
-		$user->email_verified_at = $request->email_verified_at;
-		$user->password = $request->password;
-		$user->foto = $request->foto;
-		$user->role = $request->role;
-		$user->remember_token = $request->remember_token;
+            $user->nama_lengkap = $request->nama_lengkap;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = $newPassword;
+            $user->foto = $fileName;
+            $user->role = $request->role;
             $user->save();
 
-            return redirect()->route('users.index', [])->with('success', __('User edited successfully.'));
+            return redirect()->route('user.index', [])->with('success', __('User edited successfully.'));
         } catch (\Throwable $e) {
-            return redirect()->route('users.edit', compact('user'))->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
+            return redirect()->route('user.edit', compact('user'))->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
         }
     }
 
@@ -135,9 +176,9 @@ class UserController extends Controller {
         try {
             $user->delete();
 
-            return redirect()->route('users.index', [])->with('success', __('User deleted successfully'));
+            return redirect()->route('user.index', [])->with('success', __('User deleted successfully'));
         } catch (\Throwable $e) {
-            return redirect()->route('users.index', [])->with('error', 'Cannot delete User: ' . $e->getMessage());
+            return redirect()->route('user.index', [])->with('error', 'Cannot delete User: ' . $e->getMessage());
         }
     }
 

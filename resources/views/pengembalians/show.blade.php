@@ -55,6 +55,10 @@
                             <td>{{ $pengembalian->peminjaman->detail->status ?: '(blank)' }}</td>
                         </tr>
                         <tr>
+                            <th scope="row">Status Verifikasi:</th>
+                            <td>{{ $pengembalian->detail->verifikasi ?: '(blank)' }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Jml Pinjam:</th>
                             <td>{{ $pengembalian->peminjaman->jml_pinjam ?: '(blank)' }}</td>
                         </tr>

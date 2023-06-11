@@ -52,6 +52,10 @@
                             <td>{{ $peminjaman->detail->status ?: '(blank)' }}</td>
                         </tr>
                         <tr>
+                            <th scope="row">Status Verifikasi:</th>
+                            <td>{{ $peminjaman->detail->verifikasi ?: '(blank)' }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Created at</th>
                             <td>{{ Carbon\Carbon::parse($peminjaman->created_at)->format('d/m/Y H:i:s') }}</td>
                         </tr>
