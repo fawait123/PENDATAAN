@@ -11,11 +11,13 @@
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('') }}app-assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('') }}app-assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('') }}app-assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('') }}app-assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="{{ asset('') }}app-assets/favicon/safari-pinned-tab.svg" color="#0010f7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
     <meta name="msapplication-TileColor" content="#0010f7">
     <meta name="theme-color" content="#ffffff">
 
@@ -56,7 +58,7 @@
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}assets/css/style.css">
 
-    <title>Yoda Admin Html Template</title>
+    <title>Dashboard - {{ ucfirst(explode('/', request()->path())[0]) }}</title>
 </head>
 
 <body>
@@ -1299,11 +1301,6 @@
                                                 <div class="divider mt-18 mb-16"></div>
 
                                                 <div class="row">
-                                                    <div class="col-12">
-                                                        <a class="hp-p1-body fw-medium"
-                                                            href="profile-information.html">Account Settings</a>
-                                                    </div>
-
                                                     <div class="col-12 mt-24">
                                                         <a class="hp-p1-body fw-medium" href="#"
                                                             onclick="document.getElementById('form-logout').submit()">Logout</a>
@@ -1549,6 +1546,7 @@
     <script src="{{ asset('') }}app-assets/js/cards/card-advance.js"></script>
     <script src="{{ asset('') }}app-assets/js/cards/card-statistic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
     <!-- Custom -->
     <script src="{{ asset('') }}assets/js/main.js"></script>

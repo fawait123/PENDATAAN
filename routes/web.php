@@ -26,4 +26,5 @@ Route::get('/verifikasi',[App\Http\Controllers\HomeController::class, 'verifikas
 
 Route::group(['prefix'=>'laporan','middleware'=>['auth','role:Kepala Sekolah']],function(){
     Route::get('/{prefix}',[App\Http\Controllers\LaporanController::class,'index'])->name('laporan.index');
+    Route::get('download/pdf',[App\Http\Controllers\LaporanController::class,'pdf'])->name('laporan.pdf');
 });
