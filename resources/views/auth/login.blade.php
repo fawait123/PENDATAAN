@@ -11,8 +11,8 @@
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('') }}app-assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('') }}app-assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('') }}app-assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('') }}app-assets/favicon/site.webmanifest">
     <link rel="mask-icon" href="{{ asset('') }}app-assets/favicon/safari-pinned-tab.svg" color="#0010f7">
     <meta name="msapplication-TileColor" content="#0010f7">
@@ -50,7 +50,7 @@
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}assets/css/style.css">
 
-    <title>Login - Yoda Admin Html Template</title>
+    <title>Login - Autentikasi</title>
 </head>
 
 <body>
@@ -60,32 +60,20 @@
                 <div class="hp-logo-item m-16 m-sm-32 m-md-64 w-auto px-0 col-12">
                     <div class="hp-header-logo d-flex align-items-center">
                         <a href="index.html" class="position-relative">
-                            <div class="hp-header-logo-icon position-absolute bg-black-20 hp-bg-dark-90 rounded-circle border border-black-0 hp-border-color-dark-90 d-flex align-items-center justify-content-center"
-                                style="width: 18px; height: 18px; top: -5px;">
-                                <svg class="hp-fill-color-dark-0" width="12" height="12" viewBox="0 0 12 12"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M0.709473 0L1.67247 10.8L5.99397 12L10.3267 10.7985L11.2912 0H0.710223H0.709473ZM9.19497 3.5325H4.12647L4.24722 4.88925H9.07497L8.71122 8.95575L5.99397 9.70875L3.28047 8.95575L3.09522 6.87525H4.42497L4.51947 7.93275L5.99472 8.33025L5.99772 8.3295L7.47372 7.93125L7.62672 6.21375H3.03597L2.67897 2.208H9.31422L9.19572 3.5325H9.19497Z"
-                                        fill="#2D3436" />
-                                </svg>
-                            </div>
 
-                            <img class="hp-logo hp-sidebar-visible hp-dark-none"
-                                src="{{ asset('') }}app-assets/img/logo/logo-small.svg" alt="logo">
-                            <img class="hp-logo hp-sidebar-visible hp-dark-block"
-                                src="{{ asset('') }}app-assets/img/logo/logo-small-dark.svg" alt="logo">
+
+                            <img class="hp-logo hp-sidebar-visible hp-dark-none" src="{{ asset('') }}logo.png"
+                                alt="logo">
+                            <img class="hp-logo hp-sidebar-visible hp-dark-block" src="{{ asset('') }}logo.png"
+                                alt="logo">
                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none"
-                                src="{{ asset('') }}app-assets/img/logo/logo.svg" alt="logo">
+                                src="{{ asset('') }}logo.png" alt="logo">
                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block"
-                                src="{{ asset('') }}app-assets/img/logo/logo-dark.svg" alt="logo">
+                                src="{{ asset('') }}logo.png" alt="logo">
                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-none"
-                                src="{{ asset('') }}app-assets/img/logo/logo-rtl.svg" alt="logo">
+                                src="{{ asset('') }}logo.png" alt="logo">
                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-block"
-                                src="{{ asset('') }}app-assets/img/logo/logo-rtl-dark.svg" alt="logo">
-                        </a>
-
-                        <a href="https://hypeople-studio.gitbook.io/yoda/change-log" target="_blank" class="d-flex">
-                            <span class="hp-sidebar-hidden hp-caption fw-normal hp-text-color-primary-1">v.3.2</span>
+                                src="{{ asset('') }}logo.png" alt="logo">
                         </a>
                     </div>
                 </div>
@@ -93,20 +81,14 @@
                 <div class="col-12 px-0">
                     <div class="row h-100 w-100 mx-0 align-items-center justify-content-center">
                         <div class="hp-bg-item text-center mb-32 mb-md-0 px-0 col-12">
-                            <img class="hp-dark-none m-auto w-100"
-                                src="{{ asset('') }}app-assets/img/pages/authentication/authentication-bg.svg"
-                                alt="Background Image">
-                            <img class="hp-dark-block m-auto w-100"
-                                src="{{ asset('') }}app-assets/img/pages/authentication/authentication-bg-dark.svg"
-                                alt="Background Image">
+                            <img class="hp-dark-none m-auto" src="{{ asset('Formula-rafiki.SVG') }}"
+                                style="width:450px" alt="Background Image">
                         </div>
-
                         <div class="hp-text-item text-center col-xl-9 col-12">
-                            <h2 class="hp-text-color-black-100 hp-text-color-dark-0 mx-16 mx-lg-0 mb-16"> Very good
-                                works are waiting for you </h2>
-                            <p class="h4 mb-0 fw-normal hp-text-color-black-80 hp-text-color-dark-30"> Lorem Ipsum is
-                                simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                industry's standard dummy text ever. </p>
+                            <h2 class="hp-text-color-black-100 hp-text-color-dark-0 mx-16 mx-lg-0 mb-16"> MADRASAH
+                                ALIYAH TERPADU </h2>
+                            <p class="h4 mb-0 fw-normal hp-text-color-black-80 hp-text-color-dark-30"> MA ARRAHMAN -
+                                NASOL CIKONING </p>
                         </div>
                     </div>
                 </div>
@@ -142,15 +124,16 @@
                         <div class="row align-items-center justify-content-between mb-16">
                             <div class="col hp-flex-none w-auto">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" name="remember" class="form-check-input"
+                                        id="exampleCheck1">
                                     <label class="form-check-label ps-4" for="exampleCheck1">Remember me</label>
                                 </div>
                             </div>
-
+                            {{--
                             <div class="col hp-flex-none w-auto">
                                 <a class="hp-button text-black-80 hp-text-color-dark-40"
                                     href="auth-recover.html">Forgot Password?</a>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">
@@ -169,7 +152,7 @@
                         <p class="hp-p1-body text-center hp-text-color-black-60 mb-8"> Copyright 2021 Hypeople LTD.
                         </p>
 
-                        <div class="row align-items-center justify-content-center mx-n8">
+                        {{-- <div class="row align-items-center justify-content-center mx-n8">
                             <div class="w-auto hp-flex-none px-8 col">
                                 <a href="javascript:;" class="hp-text-color-black-80 hp-text-color-dark-40"> Privacy
                                     Policy </a>
@@ -179,7 +162,7 @@
                                 <a href="javascript:;" class="hp-text-color-black-80 hp-text-color-dark-40"> Term of
                                     use </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

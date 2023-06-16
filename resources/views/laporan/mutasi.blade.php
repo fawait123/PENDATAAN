@@ -2,7 +2,7 @@
 
 @section('ruang.content')
     <div class="container">
-        <a href="{{ route('laporan.pdf') }}?download=peminjaman" class="btn btn-primary btn-sm">DOWNLOAD <i
+        <a href="{{ route('laporan.pdf') }}?download=mutasi" class="btn btn-primary btn-sm">DOWNLOAD <i
                 class="fa fa-download"></i></a>
         <br>
         <br>
@@ -13,28 +13,24 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>PEMINJAM</th>
-                                <th>TANGGAL</th>
-                                <th>TANGGAL KEMBALI</th>
+                                <th>PENGGUNA</th>
+                                <th>TANGGAL MUTASI</th>
+                                <th>RUANG</th>
                                 <th>VERIFIKASI</th>
                                 <th>KETERANGAN</th>
                                 <th>ASET</th>
-                                <th>JUMLAH PINJAM</th>
-                                <th>STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->peminjam->nama ?: '(blank)' }}</td>
-                                    <td>{{ $item->detail->tgl_pinjam ?: '(blank)' }}</td>
-                                    <td>{{ $item->detail->tgl_kembali ?: '(blank)' }}</td>
+                                    <td>{{ $item->user->nama_lengkap ?: '(blank)' }}</td>
+                                    <td>{{ $item->detail->tgl_mutasi ?: '(blank)' }}</td>
+                                    <td>{{ $item->detail->ruang->nama_ruang ?: '(blank)' }}</td>
                                     <td>{{ $item->detail->verifikasi ?: '(blank)' }}</td>
                                     <td>{{ $item->detail->keterangan ?: '(blank)' }}</td>
                                     <td>{{ $item->detail->detaset->aset->nama_aset ?: '(blank)' }}</td>
-                                    <td>{{ $item->jml_pinjam }}</td>
-                                    <td>{{ $item->detail->status ?: '(blank)' }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
