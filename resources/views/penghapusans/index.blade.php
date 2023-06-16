@@ -39,11 +39,12 @@
 
                                 <td data-label="Actions:" class="text-nowrap">
                                     @if (auth()->user()->role == 'Sekretaris')
-                                        <div class="form-check form-switch">
+                                        <div class="form-check form-switch" style="display: inline-block">
                                             <input class="form-check-input verifikasi" type="checkbox"
                                                 {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
                                                 id="flexSwitchCheckDefault{{ $loop->iteration }}"
                                                 data-id="{{ $penghapusan->kd_penghapusan }}" data-model="DetPenghapusan"
+                                                {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
                                                 data-key="kd_penghapusan">
                                             <label class="form-check-label"
                                                 for="flexSwitchCheckDefault{{ $loop->iteration }}">
@@ -51,15 +52,15 @@
                                             </label>
                                         </div>
                                     @endif
-                                    @if (auth()->user()->role == 'Bid Sarana Prasarana')
-                                        <div class="btn-group btn-group-sm">
-                                            <button type="button" class="btn btn-outline dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                    class="fa fa-cog"></i></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="{{ route('penghapusan.show', compact('penghapusan')) }}">@lang('Show')</a>
-                                                </li>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-outline dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                class="fa fa-cog"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('penghapusan.show', compact('penghapusan')) }}">@lang('Show')</a>
+                                            </li>
+                                            @if (auth()->user()->role == 'Bid Sarana Prasarana')
                                                 <li><a class="dropdown-item"
                                                         href="{{ route('penghapusan.edit', compact('penghapusan')) }}">@lang('Edit')</a>
                                                 </li>
@@ -73,9 +74,9 @@
                                                             class="dropdown-item">@lang('Delete')</button>
                                                     </form>
                                                 </li>
-                                            </ul>
-                                        </div>
-                                    @endif
+                                            @endif
+                                        </ul>
+                                    </div>
 
                                 </td>
                             </tr>

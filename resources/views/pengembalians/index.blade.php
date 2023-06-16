@@ -41,11 +41,12 @@
 
                                 <td data-label="Actions:" class="text-nowrap">
                                     @if (auth()->user()->role == 'Sekretaris')
-                                        <div class="form-check form-switch">
+                                        <div class="form-check form-switch" style="display: inline-block">
                                             <input class="form-check-input verifikasi" type="checkbox"
                                                 {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
                                                 id="flexSwitchCheckDefault{{ $loop->iteration }}"
                                                 data-id="{{ $pengembalian->kd_pengembalian }}" data-model="DetPengembalian"
+                                                {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
                                                 data-key="kd_pengembalian">
                                             <label class="form-check-label"
                                                 for="flexSwitchCheckDefault{{ $loop->iteration }}">
@@ -53,15 +54,15 @@
                                             </label>
                                         </div>
                                     @endif
-                                    @if (auth()->user()->role == 'Bid Sarana Prasarana')
-                                        <div class="btn-group btn-group-sm">
-                                            <button type="button" class="btn btn-outline dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                    class="fa fa-cog"></i></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="{{ route('pengembalian.show', compact('pengembalian')) }}">@lang('Show')</a>
-                                                </li>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-outline dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                class="fa fa-cog"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('pengembalian.show', compact('pengembalian')) }}">@lang('Show')</a>
+                                            </li>
+                                            @if (auth()->user()->role == 'Bid Sarana Prasarana')
                                                 <li><a class="dropdown-item"
                                                         href="{{ route('pengembalian.edit', compact('pengembalian')) }}">@lang('Edit')</a>
                                                 </li>
@@ -75,9 +76,10 @@
                                                             class="dropdown-item">@lang('Delete')</button>
                                                     </form>
                                                 </li>
-                                            </ul>
-                                        </div>
-                                    @endif
+                                            @endif
+
+                                        </ul>
+                                    </div>
 
                                 </td>
                             </tr>

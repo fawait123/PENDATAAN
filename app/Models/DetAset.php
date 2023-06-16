@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\UsesUuid;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DetAset extends Model
 {
-    use HasFactory,UsesUuid;
+    use HasFactory,UsesUuid,SoftDeletes;
 
     protected $table = 'det_aset';
     protected $primaryKey = 'kd_det_aset';

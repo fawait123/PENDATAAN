@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/chart',[App\Http\Controllers\HomeController::class, 'chart'])->name('home.chart');
 Route::get('/verifikasi',[App\Http\Controllers\HomeController::class, 'verifikasi'])->name('home.verifikasi');
+Route::get('/profile',[App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::post('/profile/update',[App\Http\Controllers\HomeController::class, 'updateProfile'])->name('profile.update');
+Route::post('/profile/password',[App\Http\Controllers\HomeController::class, 'updatePassword'])->name('profile.password');
 \San\Crud\Crud::routes();
 
 Route::group(['prefix'=>'laporan','middleware'=>['auth','role:Kepala Sekolah']],function(){

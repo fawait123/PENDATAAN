@@ -51,7 +51,7 @@ class LaporanController extends Controller
             case 'penghapusan':
                 # code...
                 $penghapusan = \App\Models\Penghapusan::query();
-                $penghapusan = $penghapusan->with(['detail.detaset.aset','user']);
+                $penghapusan = $penghapusan->with(['detail.detaset'=>fn($q)=>$q->withTrashed(),'detail.detaset.aset'=>fn($q)=>$q->withTrashed(),'user']);
 
                     if(!empty($request->search)) {
                         $penghapusan->where('kd_penghapusan', 'like', '%' . $request->search . '%');
