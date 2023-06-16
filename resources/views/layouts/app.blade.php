@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" />
     <meta name="msapplication-TileColor" content="#0010f7">
     <meta name="theme-color" content="#ffffff">
 
@@ -96,25 +97,17 @@
                                     </div>
 
                                     <img class="hp-logo hp-sidebar-visible hp-dark-none"
-                                        src="{{ asset('') }}app-assets/img/logo/logo-small.svg" alt="logo">
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                     <img class="hp-logo hp-sidebar-visible hp-dark-block"
-                                        src="{{ asset('') }}app-assets/img/logo/logo-small-dark.svg"
-                                        alt="logo">
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                     <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none"
-                                        src="{{ asset('') }}app-assets/img/logo/logo.svg" alt="logo">
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                     <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block"
-                                        src="{{ asset('') }}app-assets/img/logo/logo-dark.svg" alt="logo">
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                     <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-none"
-                                        src="{{ asset('') }}app-assets/img/logo/logo-rtl.svg" alt="logo">
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                     <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-block"
-                                        src="{{ asset('') }}app-assets/img/logo/logo-rtl-dark.svg"
-                                        alt="logo">
-                                </a>
-
-                                <a href="https://hypeople-studio.gitbook.io/yoda/change-log" target="_blank"
-                                    class="d-flex">
-                                    <span
-                                        class="hp-sidebar-hidden hp-caption fw-normal hp-text-color-primary-1">v.3.2</span>
+                                        src="{{ asset('logo.png') }}" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -153,14 +146,14 @@
                             <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                                 <span
                                     class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{{ auth()->user()->nama_lengkap ?? '' }}</span>
-                                <a href="profile-information.html"
+                                <a href="{{ route('profile') }}"
                                     class="hp-badge-text fw-normal hp-text-color-dark-30">{{ auth()->user()->role ?? '' }}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col hp-flex-none w-auto px-0 hp-sidebar-hidden">
-                        <a href="profile-information.html">
+                        <a href="{{ route('profile') }}">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                 class="remix-icon hp-text-color-black-100 hp-text-color-dark-0" height="24"
                                 width="24" xmlns="http://www.w3.org/2000/svg">
@@ -207,28 +200,17 @@
                                             </div>
 
                                             <img class="hp-logo hp-sidebar-visible hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-small.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-visible hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-small-dark.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo.svg" alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-dark.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-rtl.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-rtl-dark.svg"
-                                                alt="logo">
-                                        </a>
-
-                                        <a href="https://hypeople-studio.gitbook.io/yoda/change-log" target="_blank"
-                                            class="d-flex">
-                                            <span
-                                                class="hp-sidebar-hidden hp-caption fw-normal hp-text-color-primary-1">v.3.2</span>
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                         </a>
                                     </div>
                                 </div>
@@ -1294,7 +1276,7 @@
                                                     class="d-block h5 hp-text-color-black-100 hp-text-color-dark-0 mb-16">Profile
                                                     Settings</span>
 
-                                                <a href="profile-information.html"
+                                                <a href="{{ route('profile') }}"
                                                     class="hp-p1-body fw-medium hp-hover-text-color-primary-2">View
                                                     Profile</a>
 
@@ -1336,24 +1318,18 @@
                                     </svg>
                                 </div>
 
-                                <img class="hp-logo hp-sidebar-visible hp-dark-none"
-                                    src="{{ asset('') }}app-assets/img/logo/logo-small.svg" alt="logo">
-                                <img class="hp-logo hp-sidebar-visible hp-dark-block"
-                                    src="{{ asset('') }}app-assets/img/logo/logo-small-dark.svg" alt="logo">
+                                <img class="hp-logo hp-sidebar-visible hp-dark-none" src="{{ asset('logo.png') }}"
+                                    alt="logo">
+                                <img class="hp-logo hp-sidebar-visible hp-dark-block" src="{{ asset('logo.png') }}"
+                                    alt="logo">
                                 <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none"
-                                    src="{{ asset('') }}app-assets/img/logo/logo.svg" alt="logo">
+                                    src="{{ asset('logo.png') }}" alt="logo">
                                 <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block"
-                                    src="{{ asset('') }}app-assets/img/logo/logo-dark.svg" alt="logo">
+                                    src="{{ asset('logo.png') }}" alt="logo">
                                 <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-none"
-                                    src="{{ asset('') }}app-assets/img/logo/logo-rtl.svg" alt="logo">
+                                    src="{{ asset('logo.png') }}" alt="logo">
                                 <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-block"
-                                    src="{{ asset('') }}app-assets/img/logo/logo-rtl-dark.svg" alt="logo">
-                            </a>
-
-                            <a href="https://hypeople-studio.gitbook.io/yoda/change-log" target="_blank"
-                                class="d-flex">
-                                <span
-                                    class="hp-sidebar-hidden hp-caption fw-normal hp-text-color-primary-1">v.3.2</span>
+                                    src="{{ asset('logo.png') }}" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -1400,28 +1376,17 @@
                                             </div>
 
                                             <img class="hp-logo hp-sidebar-visible hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-small.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-visible hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-small-dark.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo.svg" alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-dark.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-none"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-rtl.svg"
-                                                alt="logo">
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                             <img class="hp-logo hp-sidebar-hidden hp-dir-block hp-dark-block"
-                                                src="{{ asset('') }}app-assets/img/logo/logo-rtl-dark.svg"
-                                                alt="logo">
-                                        </a>
-
-                                        <a href="https://hypeople-studio.gitbook.io/yoda/change-log" target="_blank"
-                                            class="d-flex">
-                                            <span
-                                                class="hp-sidebar-hidden hp-caption fw-normal hp-text-color-primary-1">v.3.2</span>
+                                                src="{{ asset('logo.png') }}" alt="logo">
                                         </a>
                                     </div>
                                 </div>
@@ -1462,14 +1427,14 @@
                                     <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                                         <span
                                             class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{{ auth()->user()->nama_lengkap }}</span>
-                                        <a href="profile-information.html"
+                                        <a href="{{ route('profile') }}"
                                             class="hp-badge-text fw-normal hp-text-color-dark-30">{{ auth()->user()->role }}</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col hp-flex-none w-auto px-0 hp-sidebar-hidden">
-                                <a href="profile-information.html">
+                                <a href="{{ route('profile') }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 24 24"
                                         class="remix-icon hp-text-color-black-100 hp-text-color-dark-0"
@@ -1547,6 +1512,7 @@
     <script src="{{ asset('') }}app-assets/js/cards/card-statistic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
     <!-- Custom -->
     <script src="{{ asset('') }}assets/js/main.js"></script>
