@@ -29,6 +29,6 @@ class DetAset extends Model
 
     public function aset()
     {
-        return $this->belongsTo(Aset::class,'kd_aset');
+        return $this->belongsTo(Aset::class,'kd_aset')->withTrashed();
     }
 }

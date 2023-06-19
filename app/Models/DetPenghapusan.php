@@ -17,6 +17,6 @@ class DetPenghapusan extends Model
 
     public function detaset()
     {
-        return $this->belongsTo(DetAset::class,'kd_det_aset');
+        return $this->belongsTo(DetAset::class,'kd_det_aset')->withTrashed();
     }
 }
