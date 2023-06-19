@@ -43,7 +43,6 @@ class PenghapusanController extends Controller {
             'detaset'=>\App\Models\DetAset::with('aset')->get()
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *

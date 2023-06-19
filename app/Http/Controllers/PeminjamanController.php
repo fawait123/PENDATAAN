@@ -90,7 +90,6 @@ class PeminjamanController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Peminjaman $peminjaman,) {
-
         return view('peminjamen.show', compact('peminjaman'));
     }
 
