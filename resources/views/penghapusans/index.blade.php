@@ -38,20 +38,17 @@
                                 <td data-label="Ba">{{ $penghapusan->ba ?: '(blank)' }}</td>
 
                                 <td data-label="Actions:" class="text-nowrap">
-                                    @if (auth()->user()->role == 'Sekretaris')
-                                        <div class="form-check form-switch" style="display: inline-block">
-                                            <input class="form-check-input verifikasi" type="checkbox"
-                                                {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
-                                                id="flexSwitchCheckDefault{{ $loop->iteration }}"
-                                                data-id="{{ $penghapusan->kd_penghapusan }}" data-model="DetPenghapusan"
-                                                {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
-                                                data-key="kd_penghapusan">
-                                            <label class="form-check-label"
-                                                for="flexSwitchCheckDefault{{ $loop->iteration }}">
-                                                <span class="ms-12"></span>
-                                            </label>
-                                        </div>
-                                    @endif
+                                    <div class="form-check form-switch" style="display: inline-block">
+                                        <input class="form-check-input verifikasi" type="checkbox"
+                                            {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
+                                            id="flexSwitchCheckDefault{{ $loop->iteration }}"
+                                            data-id="{{ $penghapusan->kd_penghapusan }}" data-model="DetPenghapusan"
+                                            {{ $penghapusan->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
+                                            data-key="kd_penghapusan">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault{{ $loop->iteration }}">
+                                            <span class="ms-12"></span>
+                                        </label>
+                                    </div>
                                     <div class="btn-group btn-group-sm">
                                         <button type="button" class="btn btn-outline dropdown-toggle"
                                             data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -60,21 +57,17 @@
                                             <li><a class="dropdown-item"
                                                     href="{{ route('penghapusan.show', compact('penghapusan')) }}">@lang('Show')</a>
                                             </li>
-                                            @if (auth()->user()->role == 'Bid Sarana Prasarana')
-                                                <li><a class="dropdown-item"
-                                                        href="{{ route('penghapusan.edit', compact('penghapusan')) }}">@lang('Edit')</a>
-                                                </li>
-                                                <li>
-                                                    <form
-                                                        action="{{ route('penghapusan.destroy', compact('penghapusan')) }}"
-                                                        method="POST" style="display: inline;" class="m-0 p-0">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit"
-                                                            class="dropdown-item">@lang('Delete')</button>
-                                                    </form>
-                                                </li>
-                                            @endif
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('penghapusan.edit', compact('penghapusan')) }}">@lang('Edit')</a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('penghapusan.destroy', compact('penghapusan')) }}"
+                                                    method="POST" style="display: inline;" class="m-0 p-0">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">@lang('Delete')</button>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
 

@@ -40,20 +40,17 @@
                                 <td data-label="Jml Kembali">{{ $pengembalian->jml_kembali ?: '(blank)' }}</td>
 
                                 <td data-label="Actions:" class="text-nowrap">
-                                    @if (auth()->user()->role == 'Sekretaris')
-                                        <div class="form-check form-switch" style="display: inline-block">
-                                            <input class="form-check-input verifikasi" type="checkbox"
-                                                {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
-                                                id="flexSwitchCheckDefault{{ $loop->iteration }}"
-                                                data-id="{{ $pengembalian->kd_pengembalian }}" data-model="DetPengembalian"
-                                                {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
-                                                data-key="kd_pengembalian">
-                                            <label class="form-check-label"
-                                                for="flexSwitchCheckDefault{{ $loop->iteration }}">
-                                                <span class="ms-12"></span>
-                                            </label>
-                                        </div>
-                                    @endif
+                                    <div class="form-check form-switch" style="display: inline-block">
+                                        <input class="form-check-input verifikasi" type="checkbox"
+                                            {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'checked' : '' }}
+                                            id="flexSwitchCheckDefault{{ $loop->iteration }}"
+                                            data-id="{{ $pengembalian->kd_pengembalian }}" data-model="DetPengembalian"
+                                            {{ $pengembalian->detail->verifikasi == 'Sudah Verifikasi' ? 'disabled' : '' }}
+                                            data-key="kd_pengembalian">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault{{ $loop->iteration }}">
+                                            <span class="ms-12"></span>
+                                        </label>
+                                    </div>
                                     <div class="btn-group btn-group-sm">
                                         <button type="button" class="btn btn-outline dropdown-toggle"
                                             data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -62,21 +59,17 @@
                                             <li><a class="dropdown-item"
                                                     href="{{ route('pengembalian.show', compact('pengembalian')) }}">@lang('Show')</a>
                                             </li>
-                                            @if (auth()->user()->role == 'Bid Sarana Prasarana')
-                                                <li><a class="dropdown-item"
-                                                        href="{{ route('pengembalian.edit', compact('pengembalian')) }}">@lang('Edit')</a>
-                                                </li>
-                                                <li>
-                                                    <form
-                                                        action="{{ route('pengembalian.destroy', compact('pengembalian')) }}"
-                                                        method="POST" style="display: inline;" class="m-0 p-0">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit"
-                                                            class="dropdown-item">@lang('Delete')</button>
-                                                    </form>
-                                                </li>
-                                            @endif
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('pengembalian.edit', compact('pengembalian')) }}">@lang('Edit')</a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('pengembalian.destroy', compact('pengembalian')) }}"
+                                                    method="POST" style="display: inline;" class="m-0 p-0">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">@lang('Delete')</button>
+                                                </form>
+                                            </li>
 
                                         </ul>
                                     </div>

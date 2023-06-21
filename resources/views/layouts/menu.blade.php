@@ -109,8 +109,6 @@
                 </li>
             </ul>
         </li>
-    @endif
-    @if (auth()->user()->role == 'Sekretaris' || auth()->user()->role == 'Bid Sarana Prasarana')
         <li>
             <div class="menu-title">TRANSAKSI</div>
 
