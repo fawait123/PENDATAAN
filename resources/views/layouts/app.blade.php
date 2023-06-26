@@ -1543,8 +1543,10 @@
                     }
                 })
             })
-            let selector = document.querySelectorAll('span.relative.z-0.inline-flex.shadow-sm.rounded-md')[0]
-                .remove()
+            let selector = document.querySelectorAll('span.relative.z-0.inline-flex.shadow-sm.rounded-md');
+            if (selector.length > 0) {
+                selector[0].remove();
+            }
         })
     </script>
 </body>

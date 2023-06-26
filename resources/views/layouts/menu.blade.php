@@ -19,7 +19,7 @@
             </li>
         </ul>
     </li>
-    @if (auth()->user()->role == 'Admin')
+    @if (auth()->user()->role == 'Bid Sarana Prasarana')
         <li>
             <div class="menu-title">MASTER DATA</div>
             <ul>
@@ -109,6 +109,8 @@
                 </li>
             </ul>
         </li>
+    @endif
+    @if (auth()->user()->role == 'Bid Sarana Prasarana' || auth()->user()->role == 'Sekretaris')
         <li>
             <div class="menu-title">TRANSAKSI</div>
 

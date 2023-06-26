@@ -65,8 +65,8 @@
                                 </option>
                                 <option value="Kepala Sekolah" {{ @old('role') == 'Kepala Sekolah' ? 'selected' : '' }}>
                                     Kepala Sekolah</option>
-                                <option value="Admin" {{ @old('role') == 'Admin' ? 'selected' : '' }}>Admin
-                                </option>
+                                {{-- <option value="Admin" {{ @old('role') == 'Admin' ? 'selected' : '' }}>Admin
+                                </option> --}}
                             </select>
                             @if ($errors->has('role'))
                                 <div class='error small text-danger'>{{ $errors->first('role') }}</div>
