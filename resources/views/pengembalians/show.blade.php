@@ -84,6 +84,8 @@
             </div>
 
             <div class="card-footer d-flex flex-column flex-md-row align-items-center justify-content-end">
+                @if(auth()->user()->role == "Bid Sarana Prasarana")
+
                 <a href="{{ route('pengembalian.edit', compact('pengembalian')) }}"
                     class="btn btn-info text-nowrap me-1"><i class="fa fa-edit"></i> @lang('Edit')</a>&nbsp;&nbsp;
                 <form action="{{ route('pengembalian.destroy', compact('pengembalian')) }}" method="POST" class="m-0 p-0">
@@ -92,6 +94,7 @@
                     <button type="submit" class="btn btn-danger text-nowrap"><i class="fa fa-trash"></i>
                         @lang('Delete')</button>
                 </form>
+                @endif
             </div>
         </div>
     </div>
