@@ -5,8 +5,11 @@
         <div class="card">
             <div class="card-header d-flex flex-column flex-md-row align-items-md-center justify-content-between">
                 <ol class="breadcrumb m-0 p-0 flex-grow-1 mb-2 mb-md-0">
+                    @if(auth()->user()->role == "Bid Sarana Prasarana")
+
                     <a href="{{ route('pengembalian.create', []) }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                         @lang('Create new Pengembalian')</a>
+                    @endif
                 </ol>
 
                 <form action="{{ route('pengembalian.index', []) }}" method="GET" class="m-0 p-0">

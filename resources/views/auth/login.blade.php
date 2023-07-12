@@ -88,7 +88,7 @@
                             <h2 class="hp-text-color-black-100 hp-text-color-dark-0 mx-16 mx-lg-0 mb-16"> MADRASAH
                                 ALIYAH TERPADU </h2>
                             <p class="h4 mb-0 fw-normal hp-text-color-black-80 hp-text-color-dark-30"> MA ARRAHMAN -
-                                NASOL CIKONING </p>
+                                NASOL CIKONENG </p>
                         </div>
                     </div>
                 </div>
