@@ -50,7 +50,7 @@
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="{{ asset('') }}assets/css/style.css">
 
-    <title>Login - Autentikasi</title>
+    <title>Login - Cikoneng</title>
 </head>
 
 <body>
