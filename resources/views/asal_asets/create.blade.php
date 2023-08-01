@@ -5,13 +5,13 @@
         <div class="card">
             <div class="card-header d-flex flex-row align-items-center justify-content-between">
                 <ol class="breadcrumb m-0 p-0">
-                    <li class="breadcrumb-item"><a href="{{ implode('/', ['', 'asal_asets']) }}"> Asal Aset</a></li>
+                    <li class="breadcrumb-item"><a href="{{ implode('/', ['', 'asalAset']) }}"> Asal Aset</a></li>
                     <li class="breadcrumb-item">@lang('Create new')</li>
                 </ol>
             </div>
 
             <div class="card-body">
-                <form action="{{ route('asal_aset.store', []) }}" method="POST" class="m-0 p-0">
+                <form action="{{ route('asalAset.store', []) }}" method="POST" class="m-0 p-0">
                     <div class="card-body">
                         @csrf
                         <div class="mb-3">
@@ -27,7 +27,7 @@
 
                     <div class="card-footer">
                         <div class="d-flex flex-row align-items-center justify-content-between">
-                            <a href="{{ route('asal_aset.index', []) }}" class="btn btn-outline">@lang('Cancel')</a>
+                            <a href="{{ route('asalAset.index', []) }}" class="btn btn-outline">@lang('Cancel')</a>
                             <button type="submit" class="btn btn-primary">@lang('Create new Asal Aset')</button>
                         </div>
                     </div>

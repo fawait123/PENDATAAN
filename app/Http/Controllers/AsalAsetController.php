@@ -59,9 +59,9 @@ class AsalAsetController extends Controller {
 		    $asalAset->asal_aset = $request->asal_aset;
             $asalAset->save();
 
-            return redirect()->route('asal_aset.index', [])->with('success', __('Asal Aset created successfully.'));
+            return redirect()->route('asalAset.index', [])->with('success', __('Asal Aset created successfully.'));
         } catch (\Throwable $e) {
-            return redirect()->route('asal_aset.create', [])->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
+            return redirect()->route('asalAset.create', [])->withInput($request->input())->withErrors(['error' => $e->getMessage()]);
         }
     }
 
