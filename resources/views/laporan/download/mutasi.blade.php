@@ -82,12 +82,12 @@
                 @foreach ($data as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->user->nama_lengkap ?: '(blank)' }}</td>
-                        <td>{{ $item->detail->tgl_mutasi ?: '(blank)' }}</td>
-                        <td>{{ $item->detail->ruang->nama_ruang ?: '(blank)' }}</td>
-                        <td>{{ $item->detail->verifikasi ?: '(blank)' }}</td>
-                        <td>{{ $item->detail->keterangan ?: '(blank)' }}</td>
-                        <td>{{ $item->detail->detaset->aset->nama_aset ?: '(blank)' }}</td>
+                        <td>{{ $item->user->nama_lengkap ?? '(blank)' }}</td>
+                        <td>{{ $item->detail->tgl_mutasi ?? '(blank)' }}</td>
+                        <td>{{ $item->detail->ruang->nama_ruang ?? '(blank)' }}</td>
+                        <td>{{ $item->detail->verifikasi ?? '(blank)' }}</td>
+                        <td>{{ $item->detail->keterangan ?? '(blank)' }}</td>
+                        <td>{{ $item->detail->detaset->aset->nama_aset ?? '(blank)' }}</td>
                     </tr>
                 @endforeach
             </tbody>
