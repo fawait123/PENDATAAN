@@ -123,9 +123,9 @@ class RuangController extends Controller {
         try {
             $ruang->delete();
 
-            return redirect()->route('ruangs.index', [])->with('success', __('Ruang deleted successfully'));
+            return redirect()->route('ruang.index', [])->with('success', __('Ruang deleted successfully'));
         } catch (\Throwable $e) {
-            return redirect()->route('ruangs.index', [])->with('error', 'Cannot delete Ruang: ' . $e->getMessage());
+            return redirect()->route('ruang.index', [])->with('error', 'Cannot delete Ruang: ' . $e->getMessage());
         }
     }
 
