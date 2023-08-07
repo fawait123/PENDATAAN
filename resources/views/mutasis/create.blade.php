@@ -29,7 +29,7 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label for="kd_det_aset" class="form-label">Kd Ruang:</label>
+                            <label for="kd_det_aset" class="form-label">Kd Aset:</label>
                             <select name="kd_det_aset" id="kd_det_aset" class="form-control" required>
                                 <option value="">pilih</option>
                                 @foreach ($detaset as $item)
@@ -44,7 +44,7 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label for="keterangan" class="form-label">Kd Ruang:</label>
+                            <label for="keterangan" class="form-label">Keterangan:</label>
                             <textarea name="keterangan" id="keterangan" class="form-control" cols="30" rows="5">{{ @old('keterangan') }}</textarea>
                             @if ($errors->has('keterangan'))
                                 <div class='error small text-danger'>{{ $errors->first('keterangan') }}</div>
